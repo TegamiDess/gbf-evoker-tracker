@@ -1,0 +1,474 @@
+<!--
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                 *%                                 
+                                                         --===+++##                                 
+                                               -==-+++=+*====--**=-==*#%                            
+                                          %##*+--=+-::::=-=++**####%%                               
+                             -:-:          +-+*+++==-====--++===+                                   
+                         ------::::-     #*###++++++=-=+===*#+--:=                                  
+                       --:-     :-:---       :-=+=++=---===+*++=:-                                  
+                       ----   =   -----     :-=++++=-==--++  ++++=-                                 
+                         =====      ====  +===+**+==++===       **==+ *=-----:-                     
+                                  +==-+=-=:--=======-===++++=               -:::-                   
+                                  +--===++=====+**+=----===++               -::::                   
+                                +++====#**   %%# *+=--::-=++ +     ===      ::::                    
+                                  *===++    %%%%++%+=-::=++=+#   =---:-:--:--                       
+                                    +=     +%%%%%*+%#+===+=+     -=                                 
+                 #+--+#@          #*++*##**%%%#+=*%%%%%%*=-        =                                
+                 %#*#*#%            +--*+=-=++=-+*++*#%%*====--=+                                   
+                  %*##            *=-+++*+***#*+=------*= ==++++*                                   
+                       =+#       #*=::=+#*==--===-----==--   + =                                    
+                    #=:+##%#     +:=+*+==---=--==-=-+=-=-:::= *=                                    
+                    +=+**+**    -*#**+++-=-+=--=--=-==-==----  ==                                   
+                     ##*+**##     #%##**#**+==+==++===-=+==--- =-                                   
+                      %###          #######%%####*++++=++-+#+====+                                  
+                                          +===+*%%##**+*+=+***###=+                                 
+                                        ::=---=+=+*#*####*##%**###**+                               
+                                      =-------++==+#%##%###   +*##%%#*                              
+                                     =+++++++**+++               ###%#=                             
+                                  -:=+++*    **+++                 *++                              
+                                  +=+*      *+++=-                                                  
+                                 *++=       ++++=-                                                  
+                                 *==:      ++++++                                                   
+                                  *+       ++++*                                                    
+                                          ++++*                                                     
+                                         *+++#                                                      
+                                         ++*                                                        
+                                        ++++                                                        
+                                       -++=                                                         
+                                      ++++                                                          
+                                    =-=+*                                                           
+                                    =--+                                                            
+                                    **                                                              
+                                                                                                    
+                                                                 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evoker Tracker</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        font-family: sans-serif;
+        background: #fdf6e3; /* Creamy blonde background */
+        color: #5c4a3d;
+        padding: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    h1 {
+        margin-bottom: 10px;
+        color: #d4a373; /* Darker blonde/brown text */
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    select {
+        padding: 8px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        border: 2px solid #a8e6cf;
+        border-radius: 4px;
+        background: #fff;
+        color: #5c4a3d;
+        outline: none;
+    }
+    .step {
+        background: #fff;
+        border-left: 6px solid #ff9f43;
+        border-radius: 8px;
+        padding: 12px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    /* Alternating colors for the hair tips: Orange, Green, Blue */
+    .step:nth-child(3n+1) { border-left-color: #ff9f43; }
+    .step:nth-child(3n+2) { border-left-color: #a8e6cf; }
+    .step:nth-child(3n) { border-left-color: #8be9fd; }
+
+    .step h3 { margin-bottom: 8px; cursor: pointer; user-select: none; color: #d4a373; }
+    .step h3:hover { color: #ff9f43; }
+    .material { display: flex; align-items: center; gap: 8px; padding: 4px 0; }
+    .material.done span { text-decoration: line-through; opacity: 0.5; }
+    input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; accent-color: #a8e6cf; }
+
+    .cumulative {
+        background: #fff;
+        border-top: 6px solid #8be9fd;
+        border-radius: 8px;
+        padding: 12px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .cumulative h2 { margin-bottom: 8px; color: #d4a373; }
+
+    .tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+    .tabs button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        background: #e6c280; /* Base blonde */
+        color: #fff;
+        font-weight: bold;
+        transition: 0.2s;
+    }
+    .tabs button:hover { background: #d4a373; }
+    .tabs button.active {
+        /* The gradient of her hair tips! */
+        background: linear-gradient(to right, #ff9f43, #a8e6cf, #8be9fd);
+        color: #fff;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Evoker Tracker</h1>
+  <select id="evokerSelect"></select>
+  <div class="tabs">
+    <button onclick="setView('steps')" id="tabSteps">Step by Step</button>
+    <button onclick="setView('cumulative')" id="tabCumulative">Cumulative</button>
+  </div>
+  <div id="content"></div>
+
+<script>
+    // --- EASTER EGG ---
+    console.log(`
+
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                 *%                                 
+                                                         --===+++##                                 
+                                               -==-+++=+*====--**=-==*#%                            
+                                          %##*+--=+-::::=-=++**####%%                               
+                             -:-:          +-+*+++==-====--++===+                                   
+                         ------::::-     #*###++++++=-=+===*#+--:=                                  
+                       --:-     :-:---       :-=+=++=---===+*++=:-                                  
+                       ----   =   -----     :-=++++=-==--++  ++++=-                                 
+                         =====      ====  +===+**+==++===       **==+ *=-----:-                     
+                                  +==-+=-=:--=======-===++++=               -:::-                   
+                                  +--===++=====+**+=----===++               -::::                   
+                                +++====#**   %%# *+=--::-=++ +     ===      ::::                    
+                                  *===++    %%%%++%+=-::=++=+#   =---:-:--:--                       
+                                    +=     +%%%%%*+%#+===+=+     -=                                 
+                 #+--+#@          #*++*##**%%%#+=*%%%%%%*=-        =                                
+                 %#*#*#%            +--*+=-=++=-+*++*#%%*====--=+                                   
+                  %*##            *=-+++*+***#*+=------*= ==++++*                                   
+                       =+#       #*=::=+#*==--===-----==--   + =                                    
+                    #=:+##%#     +:=+*+==---=--==-=-+=-=-:::= *=                                    
+                    +=+**+**    -*#**+++-=-+=--=--=-==-==----  ==                                   
+                     ##*+**##     #%##**#**+==+==++===-=+==--- =-                                   
+                      %###          #######%%####*++++=++-+#+====+                                  
+                                          +===+*%%##**+*+=+***###=+                                 
+                                        ::=---=+=+*#*####*##%**###**+                               
+                                      =-------++==+#%##%###   +*##%%#*                              
+                                     =+++++++**+++               ###%#=                             
+                                  -:=+++*    **+++                 *++                              
+                                  +=+*      *+++=-                                                  
+                                 *++=       ++++=-                                                  
+                                 *==:      ++++++                                                   
+                                  *+       ++++*                                                    
+                                          ++++*                                                     
+                                         *+++#                                                      
+                                         ++*                                                        
+                                        ++++                                                        
+                                       -++=                                                         
+                                      ++++                                                          
+                                    =-=+*                                                           
+                                    =--+                                                            
+                                    **                                                              
+                                                                                                    
+                                                                                                    
+    `);
+    // ------------------
+
+    const data = {
+  "evokers": {
+    "Maria Theresa": {
+      "element": "Water",
+      "summon": "Justice",
+      "weapon": "Rise of Justice",
+      "steps": {
+        "Recruit Evoker": {"Justice Idean":20,"Aquaborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
+        "4★ Uncap": {"Water Verum Proof":20,"Aquaborne Astra":6,"Justice Idean":2},
+        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Analipsis":50,"Aqua Luster":50,"Sephira Stone":200,"Rupie":100000},
+        "Acquire Weapon": {"New World Quartz":5,"Aqua Luster":5,"Justice Veritas":20},
+        "Weapon 1★": {"New World Quartz":5,"Aqua Luster":15,"Justice Veritas":70,"Malice Fragment":30,"Water Verum Proof":100,"Aquaborne Astra":30},
+        "Weapon 2★": {"New World Quartz":10,"Aqua Luster":30,"Justice Veritas":100,"Verdant Azurite":20,"Water Verum Proof":150,"Aquaborne Astra":50,"Justice Idean":30},
+        "Weapon 3★": {"New World Quartz":20,"Aqua Luster":50,"Justice Veritas":130,"Wamdus's Jewel":20,"Water Verum Proof":200,"Aquaborne Astra":100,"Justice Idean":70},
+        "Weapon 4★": {"New World Quartz":20,"Aqua Luster":60,"Justice Veritas":150,"Wamdus's Jewel":30,"Water Verum Proof":250,"Aquaborne Astra":120,"Justice Idean":100},
+        "Weapon 5★": {"New World Quartz":30,"Aqua Luster":70,"Justice Veritas":170,"Abyssal Tragedy":30,"Bellator Fragment":30,"Aquaborne Astra":140,"Justice Idean":130,"Eternity Sand":3},
+        "Domain 1": {"Genesis Fragment":30,"Water Verum Proof":120,"Sephira Stone":5,"Chaotic Haze":20},
+        "Domain 2": {"Water Urn":30,"Water Verum Proof":240,"Aquaborne Astra":30,"Chaotic Haze":30,"Sephira Stone":10},
+        "Domain 3": {"Europa Omega Anima":10,"Justice Veritas":30,"Aquaborne Astra":40,"Justice Idean":40,"Bellator Fragment":10,"Sephira Stone":15},
+        "Domain 4": {"Abyssal Tragedy":30,"Aqua Luster":20,"Justice Veritas":50,"Aquaborne Astra":40,"Justice Idean":70,"Bellator Fragment":20,"Sephira Stone":20},
+        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
+      }
+    },
+    "Caim": {
+      "element": "Earth",
+      "summon": "The Hanged Man",
+      "weapon": "Binds of The Hanged Man",
+      "steps": {
+        "Recruit Evoker": {"Hanged Man Idean":20,"Earthborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
+        "4★ Uncap": {"Earth Verum Proof":20,"Earthborne Astra":6,"Hanged Man Idean":2},
+        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Thysia":50,"Terra Luster":50,"Sephira Stone":200,"Rupie":100000},
+        "Acquire Weapon": {"New World Quartz":5,"Terra Luster":5,"Hanged Man Veritas":20},
+        "Weapon 1★": {"New World Quartz":5,"Terra Luster":15,"Hanged Man Veritas":70,"Malice Fragment":30,"Earth Verum Proof":100,"Earthborne Astra":30},
+        "Weapon 2★": {"New World Quartz":10,"Terra Luster":30,"Hanged Man Veritas":100,"Verdant Azurite":20,"Earth Verum Proof":150,"Earthborne Astra":50,"Hanged Man Idean":30},
+        "Weapon 3★": {"New World Quartz":20,"Terra Luster":50,"Hanged Man Veritas":130,"Galleon's Jewel":20,"Earth Verum Proof":200,"Earthborne Astra":100,"Hanged Man Idean":70},
+        "Weapon 4★": {"New World Quartz":20,"Terra Luster":60,"Hanged Man Veritas":150,"Galleon's Jewel":30,"Earth Verum Proof":250,"Earthborne Astra":120,"Hanged Man Idean":100},
+        "Weapon 5★": {"New World Quartz":30,"Terra Luster":70,"Hanged Man Veritas":170,"Insular Core":30,"Aquila Fragment":30,"Earthborne Astra":140,"Hanged Man Idean":130,"Eternity Sand":3},
+        "Domain 1": {"Genesis Fragment":30,"Earth Verum Proof":120,"Sephira Stone":5,"Chaotic Haze":20},
+        "Domain 2": {"Earth Urn":30,"Earth Verum Proof":240,"Earthborne Astra":30,"Chaotic Haze":30,"Sephira Stone":10},
+        "Domain 3": {"Alexiel Omega Anima":10,"Hanged Man Veritas":30,"Earthborne Astra":40,"Hanged Man Idean":40,"Aquila Fragment":10,"Sephira Stone":15},
+        "Domain 4": {"Insular Core":30,"Terra Luster":20,"Hanged Man Veritas":50,"Earthborne Astra":40,"Hanged Man Idean":70,"Aquila Fragment":20,"Sephira Stone":20},
+        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
+      }
+    },
+    "Nier": {
+      "element": "Dark",
+      "summon": "Death",
+      "weapon": "Pain of Death",
+      "steps": {
+        "Recruit Evoker": {"Death Idean":20,"Darkborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
+        "4★ Uncap": {"Water Verum Proof":10,"Earth Verum Proof":10,"Darkborne Astra":6,"Death Idean":2},
+        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Analipsis":25,"Gospel of Thysia":25,"Aqua Luster":25,"Terra Luster":25,"Sephira Stone":200,"Rupie":100000},
+        "Acquire Weapon": {"New World Quartz":5,"Aqua Luster":3,"Terra Luster":3,"Death Veritas":20},
+        "Weapon 1★": {"New World Quartz":5,"Aqua Luster":7,"Terra Luster":7,"Death Veritas":70,"Malice Fragment":30,"Water Verum Proof":50,"Earth Verum Proof":50,"Darkborne Astra":30},
+        "Weapon 2★": {"New World Quartz":10,"Aqua Luster":15,"Terra Luster":15,"Death Veritas":100,"Verdant Azurite":20,"Water Verum Proof":75,"Earth Verum Proof":75,"Darkborne Astra":50,"Death Idean":30},
+        "Weapon 3★": {"New World Quartz":20,"Aqua Luster":25,"Terra Luster":25,"Death Veritas":130,"Fediel's Jewel":20,"Water Verum Proof":100,"Earth Verum Proof":100,"Darkborne Astra":100,"Death Idean":70},
+        "Weapon 4★": {"New World Quartz":20,"Aqua Luster":30,"Terra Luster":30,"Death Veritas":150,"Fediel's Jewel":30,"Water Verum Proof":125,"Earth Verum Proof":125,"Darkborne Astra":120,"Death Idean":100},
+        "Weapon 5★": {"New World Quartz":30,"Aqua Luster":35,"Terra Luster":35,"Death Veritas":170,"Todestrieb":30,"Celsus Fragment":30,"Darkborne Astra":140,"Death Idean":130,"Eternity Sand":3},
+        "Domain 1": {"Genesis Fragment":30,"Water Verum Proof":60,"Earth Verum Proof":60,"Sephira Stone":5,"Chaotic Haze":20},
+        "Domain 2": {"Dark Urn":30,"Water Verum Proof":120,"Earth Verum Proof":120,"Darkborne Astra":30,"Chaotic Haze":30,"Sephira Stone":10},
+        "Domain 3": {"Avatar Omega Anima":10,"Death Veritas":30,"Darkborne Astra":40,"Death Idean":40,"Celsus Fragment":10,"Sephira Stone":15},
+        "Domain 4": {"Todestrieb":30,"Aqua Luster":10,"Terra Luster":10,"Death Veritas":50,"Darkborne Astra":40,"Death Idean":70,"Celsus Fragment":20,"Sephira Stone":20},
+        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
+      }
+    },
+    "Estarriola": {
+      "element": "Wind",
+      "summon": "Temperance",
+      "weapon": "Theater of Temperance",
+      "steps": {
+        "Recruit Evoker": {"Temperance Idean":20,"Windborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
+        "4★ Uncap": {"Wind Verum Proof":20,"Windborne Astra":6,"Temperance Idean":2},
+        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Genea":50,"Ventus Luster":50,"Sephira Stone":200,"Rupie":100000},
+        "Acquire Weapon": {"New World Quartz":5,"Ventus Luster":5,"Temperance Veritas":20},
+        "Weapon 1★": {"New World Quartz":5,"Ventus Luster":15,"Temperance Veritas":70,"Malice Fragment":30,"Wind Verum Proof":100,"Windborne Astra":30},
+        "Weapon 2★": {"New World Quartz":10,"Ventus Luster":30,"Temperance Veritas":100,"Verdant Azurite":20,"Wind Verum Proof":150,"Windborne Astra":50,"Temperance Idean":30},
+        "Weapon 3★": {"New World Quartz":20,"Ventus Luster":50,"Temperance Veritas":130,"Ewiyar's Jewel":20,"Wind Verum Proof":200,"Windborne Astra":100,"Temperance Idean":70},
+        "Weapon 4★": {"New World Quartz":20,"Ventus Luster":60,"Temperance Veritas":150,"Ewiyar's Jewel":30,"Wind Verum Proof":250,"Windborne Astra":120,"Temperance Idean":100},
+        "Weapon 5★": {"New World Quartz":30,"Ventus Luster":70,"Temperance Veritas":170,"Gale Rock":30,"Celsus Fragment":30,"Windborne Astra":140,"Temperance Idean":130,"Eternity Sand":3},
+        "Domain 1": {"Genesis Fragment":30,"Wind Verum Proof":120,"Sephira Stone":5,"Aurora Haze":20},
+        "Domain 2": {"Wind Urn":30,"Wind Verum Proof":240,"Windborne Astra":30,"Aurora Haze":30,"Sephira Stone":10},
+        "Domain 3": {"Grimnir Omega Anima":10,"Temperance Veritas":30,"Windborne Astra":40,"Temperance Idean":40,"Celsus Fragment":10,"Sephira Stone":15},
+        "Domain 4": {"Gale Rock":30,"Ventus Luster":20,"Temperance Veritas":50,"Windborne Astra":40,"Temperance Idean":70,"Celsus Fragment":20,"Sephira Stone":20},
+        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
+      }
+    },
+    "Fraux": {
+      "element": "Fire",
+      "summon": "The Devil",
+      "weapon": "Kiss of The Devil",
+      "steps": {
+        "Recruit Evoker": {"Devil Idean":20,"Flameborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
+        "4★ Uncap": {"Fire Verum Proof":20,"Flameborne Astra":6,"Devil Idean":2},
+        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Egeiro":50,"Ignis Luster":50,"Sephira Stone":200,"Rupie":100000},
+        "Acquire Weapon": {"New World Quartz":5,"Ignis Luster":5,"Devil Veritas":20},
+        "Weapon 1★": {"New World Quartz":5,"Ignis Luster":15,"Devil Veritas":70,"Malice Fragment":30,"Fire Verum Proof":100,"Flameborne Astra":30},
+        "Weapon 2★": {"New World Quartz":10,"Ignis Luster":30,"Devil Veritas":100,"Verdant Azurite":20,"Fire Verum Proof":150,"Flameborne Astra":50,"Devil Idean":30},
+        "Weapon 3★": {"New World Quartz":20,"Ignis Luster":50,"Devil Veritas":130,"Wilnas's Jewel":20,"Fire Verum Proof":200,"Flameborne Astra":100,"Devil Idean":70},
+        "Weapon 4★": {"New World Quartz":20,"Ignis Luster":60,"Devil Veritas":150,"Wilnas's Jewel":30,"Fire Verum Proof":250,"Flameborne Astra":120,"Devil Idean":100},
+        "Weapon 5★": {"New World Quartz":30,"Ignis Luster":70,"Devil Veritas":170,"Smoldering Rubble":30,"Aquila Fragment":30,"Flameborne Astra":140,"Devil Idean":130,"Eternity Sand":3},
+        "Domain 1": {"Genesis Fragment":30,"Fire Verum Proof":120,"Sephira Stone":5,"Aurora Haze":20},
+        "Domain 2": {"Fire Urn":30,"Fire Verum Proof":240,"Flameborne Astra":30,"Aurora Haze":30,"Sephira Stone":10},
+        "Domain 3": {"Shiva Omega Anima":10,"Devil Veritas":30,"Flameborne Astra":40,"Devil Idean":40,"Aquila Fragment":10,"Sephira Stone":15},
+        "Domain 4": {"Smoldering Rubble":30,"Ignis Luster":20,"Devil Veritas":50,"Flameborne Astra":40,"Devil Idean":70,"Aquila Fragment":20,"Sephira Stone":20},
+        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
+      }
+    },
+    "Lobelia": {
+      "element": "Earth",
+      "summon": "The Tower",
+      "weapon": "Collapse of The Tower",
+      "steps": {
+        "Recruit Evoker": {"Tower Idean":20,"Earthborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
+        "4★ Uncap": {"Earth Verum Proof":20,"Earthborne Astra":6,"Tower Idean":2},
+        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Thysia":50,"Terra Luster":50,"Sephira Stone":200,"Rupie":100000},
+        "Acquire Weapon": {"New World Quartz":5,"Terra Luster":5,"Tower Veritas":20},
+        "Weapon 1★": {"New World Quartz":5,"Terra Luster":15,"Tower Veritas":70,"Malice Fragment":30,"Earth Verum Proof":100,"Earthborne Astra":30},
+        "Weapon 2★": {"New World Quartz":10,"Terra Luster":30,"Tower Veritas":100,"Verdant Azurite":20,"Earth Verum Proof":150,"Earthborne Astra":50,"Tower Idean":30},
+        "Weapon 3★": {"New World Quartz":20,"Terra Luster":50,"Tower Veritas":130,"Galleon's Jewel":20,"Earth Verum Proof":200,"Earthborne Astra":100,"Tower Idean":70},
+        "Weapon 4★": {"New World Quartz":20,"Terra Luster":60,"Tower Veritas":150,"Galleon's Jewel":30,"Earth Verum Proof":250,"Earthborne Astra":120,"Tower Idean":100},
+        "Weapon 5★": {"New World Quartz":30,"Terra Luster":70,"Tower Veritas":170,"Insular Core":30,"Celsus Fragment":30,"Earthborne Astra":140,"Tower Idean":130,"Eternity Sand":3},
+        "Domain 1": {"Genesis Fragment":30,"Earth Verum Proof":120,"Sephira Stone":5,"Chaotic Haze":20},
+        "Domain 2": {"Earth Urn":30,"Earth Verum Proof":240,"Earthborne Astra":30,"Chaotic Haze":30,"Sephira Stone":10},
+        "Domain 3": {"Alexiel Omega Anima":10,"Tower Veritas":30,"Earthborne Astra":40,"Tower Idean":40,"Celsus Fragment":10,"Sephira Stone":15},
+        "Domain 4": {"Insular Core":30,"Terra Luster":20,"Tower Veritas":50,"Earthborne Astra":40,"Tower Idean":70,"Celsus Fragment":20,"Sephira Stone":20},
+        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
+      }
+    },
+    "Geisenborger": {
+      "element": "Light",
+      "summon": "The Star",
+      "weapon": "Shooting of The Star",
+      "steps": {
+        "Recruit Evoker": {"Star Idean":20,"Lightborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
+        "4★ Uncap": {"Fire Verum Proof":10,"Wind Verum Proof":10,"Lightborne Astra":6,"Star Idean":2},
+        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Egeiro":25,"Gospel of Genea":25,"Ignis Luster":25,"Ventus Luster":25,"Sephira Stone":200,"Rupie":100000},
+        "Acquire Weapon": {"New World Quartz":5,"Ignis Luster":3,"Ventus Luster":3,"Star Veritas":20},
+        "Weapon 1★": {"New World Quartz":5,"Ignis Luster":7,"Ventus Luster":7,"Star Veritas":70,"Malice Fragment":30,"Fire Verum Proof":50,"Wind Verum Proof":50,"Lightborne Astra":30},
+        "Weapon 2★": {"New World Quartz":10,"Ignis Luster":15,"Ventus Luster":15,"Star Veritas":100,"Verdant Azurite":20,"Fire Verum Proof":75,"Wind Verum Proof":75,"Lightborne Astra":50,"Star Idean":30},
+        "Weapon 3★": {"New World Quartz":20,"Ignis Luster":25,"Ventus Luster":25,"Star Veritas":130,"Lu Woh's Jewel":20,"Fire Verum Proof":100,"Wind Verum Proof":100,"Lightborne Astra":100,"Star Idean":70},
+        "Weapon 4★": {"New World Quartz":20,"Ignis Luster":30,"Ventus Luster":30,"Star Veritas":150,"Lu Woh's Jewel":30,"Fire Verum Proof":125,"Wind Verum Proof":125,"Lightborne Astra":120,"Star Idean":100},
+        "Weapon 5★": {"New World Quartz":30,"Ignis Luster":35,"Ventus Luster":35,"Star Veritas":170,"Thunderbolt Wheel":30,"Celsus Fragment":30,"Lightborne Astra":140,"Star Idean":130,"Eternity Sand":3},
+        "Domain 1": {"Genesis Fragment":30,"Fire Verum Proof":60,"Wind Verum Proof":60,"Sephira Stone":5,"Aurora Haze":20},
+        "Domain 2": {"Light Urn":30,"Fire Verum Proof":120,"Wind Verum Proof":120,"Lightborne Astra":30,"Aurora Haze":30,"Sephira Stone":10},
+        "Domain 3": {"Metatron Omega Anima":10,"Star Veritas":30,"Lightborne Astra":40,"Star Idean":40,"Celsus Fragment":10,"Sephira Stone":15},
+        "Domain 4": {"Thunderbolt Wheel":30,"Ignis Luster":10,"Ventus Luster":10,"Star Veritas":50,"Lightborne Astra":40,"Star Idean":70,"Celsus Fragment":20,"Sephira Stone":20},
+        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
+      }
+    },
+    "Haaselia": {
+      "element": "Water",
+      "summon": "The Moon",
+      "weapon": "Reflection of The Moon",
+      "steps": {
+        "Recruit Evoker": {"Moon Idean":20,"Aquaborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
+        "4★ Uncap": {"Water Verum Proof":20,"Aquaborne Astra":6,"Moon Idean":2},
+        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Analipsis":50,"Aqua Luster":50,"Sephira Stone":200,"Rupie":100000},
+        "Acquire Weapon": {"New World Quartz":5,"Aqua Luster":5,"Moon Veritas":20},
+        "Weapon 1★": {"New World Quartz":5,"Aqua Luster":15,"Moon Veritas":70,"Malice Fragment":30,"Water Verum Proof":100,"Aquaborne Astra":30},
+        "Weapon 2★": {"New World Quartz":10,"Aqua Luster":30,"Moon Veritas":100,"Verdant Azurite":20,"Water Verum Proof":150,"Aquaborne Astra":50,"Moon Idean":30},
+        "Weapon 3★": {"New World Quartz":20,"Aqua Luster":50,"Moon Veritas":130,"Wamdus's Jewel":20,"Water Verum Proof":200,"Aquaborne Astra":100,"Moon Idean":70},
+        "Weapon 4★": {"New World Quartz":20,"Aqua Luster":60,"Moon Veritas":150,"Wamdus's Jewel":30,"Water Verum Proof":250,"Aquaborne Astra":120,"Moon Idean":100},
+        "Weapon 5★": {"New World Quartz":30,"Aqua Luster":70,"Moon Veritas":170,"Abyssal Tragedy":30,"Bellator Fragment":30,"Aquaborne Astra":140,"Moon Idean":130,"Eternity Sand":3},
+        "Domain 1": {"Genesis Fragment":30,"Water Verum Proof":120,"Sephira Stone":5,"Aurora Haze":20},
+        "Domain 2": {"Water Urn":30,"Water Verum Proof":240,"Aquaborne Astra":30,"Aurora Haze":30,"Sephira Stone":10},
+        "Domain 3": {"Europa Omega Anima":10,"Moon Veritas":30,"Aquaborne Astra":40,"Moon Idean":40,"Bellator Fragment":10,"Sephira Stone":15},
+        "Domain 4": {"Abyssal Tragedy":30,"Aqua Luster":20,"Moon Veritas":50,"Aquaborne Astra":40,"Moon Idean":70,"Bellator Fragment":20,"Sephira Stone":20},
+        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
+      }
+    },
+    "Alanaan": {
+      "element": "Fire",
+      "summon": "The Sun",
+      "weapon": "Heat of The Sun",
+      "steps": {
+        "Recruit Evoker": {"Sun Idean":20,"Flameborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
+        "4★ Uncap": {"Fire Verum Proof":20,"Flameborne Astra":6,"Sun Idean":2},
+        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Egeiro":50,"Ignis Luster":50,"Sephira Stone":200,"Rupie":100000},
+        "Acquire Weapon": {"New World Quartz":5,"Ignis Luster":5,"Sun Veritas":20},
+        "Weapon 1★": {"New World Quartz":5,"Ignis Luster":15,"Sun Veritas":70,"Malice Fragment":30,"Fire Verum Proof":100,"Flameborne Astra":30},
+        "Weapon 2★": {"New World Quartz":10,"Ignis Luster":30,"Sun Veritas":100,"Verdant Azurite":20,"Fire Verum Proof":150,"Flameborne Astra":50,"Sun Idean":30},
+        "Weapon 3★": {"New World Quartz":20,"Ignis Luster":50,"Sun Veritas":130,"Wilnas's Jewel":20,"Fire Verum Proof":200,"Flameborne Astra":100,"Sun Idean":70},
+        "Weapon 4★": {"New World Quartz":20,"Ignis Luster":60,"Sun Veritas":150,"Wilnas's Jewel":30,"Fire Verum Proof":250,"Flameborne Astra":120,"Sun Idean":100},
+        "Weapon 5★": {"New World Quartz":30,"Ignis Luster":70,"Sun Veritas":170,"Smoldering Rubble":30,"Aquila Fragment":30,"Flameborne Astra":140,"Sun Idean":130,"Eternity Sand":3},
+        "Domain 1": {"Genesis Fragment":30,"Fire Verum Proof":120,"Sephira Stone":5,"Aurora Haze":20},
+        "Domain 2": {"Fire Urn":30,"Fire Verum Proof":240,"Flameborne Astra":30,"Aurora Haze":30,"Sephira Stone":10},
+        "Domain 3": {"Shiva Omega Anima":10,"Sun Veritas":30,"Flameborne Astra":40,"Sun Idean":40,"Aquila Fragment":10,"Sephira Stone":15},
+        "Domain 4": {"Smoldering Rubble":30,"Ignis Luster":20,"Sun Veritas":50,"Flameborne Astra":40,"Sun Idean":70,"Aquila Fragment":20,"Sephira Stone":20},
+        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
+      }
+    },
+    "Katzelia": {
+      "element": "Wind",
+      "summon": "Judgement",
+      "weapon": "Melody of Judgement",
+      "steps": {
+        "Recruit Evoker": {"Judgement Idean":20,"Windborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
+        "4★ Uncap": {"Wind Verum Proof":20,"Windborne Astra":6,"Judgement Idean":2},
+        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Genea":50,"Ventus Luster":50,"Sephira Stone":200,"Rupie":100000},
+        "Acquire Weapon": {"New World Quartz":5,"Ventus Luster":5,"Judgement Veritas":20},
+        "Weapon 1★": {"New World Quartz":5,"Ventus Luster":15,"Judgement Veritas":70,"Malice Fragment":30,"Wind Verum Proof":100,"Windborne Astra":30},
+        "Weapon 2★": {"New World Quartz":10,"Ventus Luster":30,"Judgement Veritas":100,"Verdant Azurite":20,"Wind Verum Proof":150,"Windborne Astra":50,"Judgement Idean":30},
+        "Weapon 3★": {"New World Quartz":20,"Ventus Luster":50,"Judgement Veritas":130,"Ewiyar's Jewel":20,"Wind Verum Proof":200,"Windborne Astra":100,"Judgement Idean":70},
+        "Weapon 4★": {"New World Quartz":20,"Ventus Luster":60,"Judgement Veritas":150,"Ewiyar's Jewel":30,"Wind Verum Proof":250,"Windborne Astra":120,"Judgement Idean":100},
+        "Weapon 5★": {"New World Quartz":30,"Ventus Luster":70,"Judgement Veritas":170,"Gale Rock":30,"Bellator Fragment":30,"Windborne Astra":140,"Judgement Idean":130,"Eternity Sand":3},
+        "Domain 1": {"Genesis Fragment":30,"Wind Verum Proof":120,"Sephira Stone":5,"Aurora Haze":20},
+        "Domain 2": {"Wind Urn":30,"Wind Verum Proof":240,"Windborne Astra":30,"Aurora Haze":30,"Sephira Stone":10},
+        "Domain 3": {"Grimnir Omega Anima":10,"Judgement Veritas":30,"Windborne Astra":40,"Judgement Idean":40,"Bellator Fragment":10,"Sephira Stone":15},
+        "Domain 4": {"Gale Rock":30,"Ventus Luster":20,"Judgement Veritas":50,"Windborne Astra":40,"Judgement Idean":70,"Bellator Fragment":20,"Sephira Stone":20},
+        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
+      }
+    }
+  }
+};
+
+    let view = 'steps', currentEvoker;
+
+    const saved = () => JSON.parse(localStorage.getItem('evokerTracker') || '{}');
+    const save = (s) => localStorage.setItem('evokerTracker', JSON.stringify(s));
+
+    function init() {
+      const sel = document.getElementById('evokerSelect');
+      for (const name of Object.keys(data.evokers)) {
+        const opt = document.createElement('option');
+        opt.value = opt.textContent = name;
+        sel.appendChild(opt);
+      }
+      sel.addEventListener('change', () => { currentEvoker = sel.value; render(); });
+      currentEvoker = sel.value;
+      setView('steps');
+    }
+
+    function setView(v) {
+      view = v;
+      document.getElementById('tabSteps').className = v === 'steps' ? 'active' : '';
+      document.getElementById('tabCumulative').className = v === 'cumulative' ? 'active' : '';
+      render();
+    }
+
+    function toggle(key) {
+      const s = saved();
+      s[key] = !s[key];
+      save(s);
+      render();
+    }
+
+        function render() {
+      const el = document.getElementById('content');
+      const evoker = data.evokers[currentEvoker];
+      const s = saved();
+
+      if (view === 'steps') {
+        el.innerHTML = Object.entries(evoker.steps).map(([step, mats]) =>
+          `<div class="step"><h3>${step}</h3>` +
+          Object.entries(mats).map(([mat, qty]) => {
+            const key = `${currentEvoker}|${step}|${mat}`;
+            const done = s[key] ? 'done' : '';
+            // Changed div to label, moved event to onchange
+            return `<label class="material ${done}" style="cursor:pointer;">
+              <input type="checkbox" onchange="toggle('${key}')" ${s[key] ? 'checked' : ''}>
+              <span>${mat} ×${qty.toLocaleString()}</span>
+            </label>`;
+          }).join('') + `</div>`
+        ).join('');
+      } else {
+        const totals = {};
+        for (const mats of Object.values(evoker.steps))
+          for (const [mat, qty] of Object.entries(mats))
+            totals[mat] = (totals[mat] || 0) + qty;
+
+        el.innerHTML = `<div class="cumulative"><h2>Total Materials</h2>` +
+          Object.entries(totals).map(([mat, qty]) => {
+            const key = `${currentEvoker}|total|${mat}`;
+            const done = s[key] ? 'done' : '';
+            // Changed div to label, moved event to onchange
+            return `<label class="material ${done}" style="cursor:pointer;">
+              <input type="checkbox" onchange="toggle('${key}')" ${s[key] ? 'checked' : ''}>
+              <span>${mat} ×${qty.toLocaleString()}</span>
+            </label>`;
+          }).join('') + `</div>`;
+      }
+    }
+    init();
+</script>
+</body>
+</html>
