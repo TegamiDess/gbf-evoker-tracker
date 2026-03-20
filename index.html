@@ -405,6 +405,67 @@
       }
     };
 
+    const matLinks = {
+      // Light / Star
+      "Lightborne Astra": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/4/819031/25",
+      "Star Idean": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/4/819031/25",
+      "Star Veritas": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/4/819031/25",
+
+      // Dark / Death
+      "Darkborne Astra": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/8/819061/25",
+      "Death Idean": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/8/819061/25",
+      "Death Veritas": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/8/819061/25",
+
+      // Fire / Devil / Sun
+      "Flameborne Astra": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/2/819011/25",
+      "Devil Idean": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/2/819011/25",
+      "Devil Veritas": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/2/819011/25",
+      "Sun Idean": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/2/819011/25",
+      "Sun Veritas": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/2/819011/25",
+
+      // Earth / Tower / Hanged Man
+      "Earthborne Astra": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/6/819041/25",
+      "Tower Idean": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/6/819041/25",
+      "Tower Veritas": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/6/819041/25",
+      "Hanged Man Idean": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/6/819041/25",
+      "Hanged Man Veritas": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/6/819041/25",
+
+      // Wind / Temperance / Judgement
+      "Windborne Astra": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/13/819101/25",
+      "Temperance Idean": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/13/819101/25",
+      "Temperance Veritas": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/13/819101/25",
+      "Judgement Idean": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/13/819101/25",
+      "Judgement Veritas": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/13/819101/25",
+
+      // Water / Justice / Moon
+      "Aquaborne Astra": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/9/819071/25",
+      "Justice Idean": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/9/819071/25",
+      "Justice Veritas": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/9/819071/25",
+      "Moon Idean": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/9/819071/25",
+      "Moon Veritas": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/9/819071/25",
+
+      // Lusters
+      "Ventus Luster": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/13/819171/25",
+      "Aqua Luster": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/9/819151/25",
+      "Ignis Luster": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/2/819141/25",
+      "Terra Luster": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/6/819161/25",
+
+      // Verums
+      "Fire Verum Proof": "https://game.granbluefantasy.jp/#replicard/supporter/2/2/3/811011/25",
+      "Water Verum Proof": "https://game.granbluefantasy.jp/#replicard/supporter/3/3/4/812011/25",
+      "Earth Verum Proof": "https://game.granbluefantasy.jp/#replicard/supporter/4/4/3/813011/25",
+      "Wind Verum Proof": "https://game.granbluefantasy.jp/#replicard/supporter/5/5/2/814011/25",
+
+      // World Idean
+      "World Idean": "https://game.granbluefantasy.jp/#replicard/supporter/10/10/16/819131/25/0/25085"
+    };
+
+    function getLinkHTML(matName) {
+      return matLinks[matName]
+        ? ` <a href="${matLinks[matName]}" target="_blank" onclick="event.stopPropagation()" style="text-decoration:none;font-size:12px" title="Open in game">🔗</a>`
+        : '';
+    }
+
     let view = 'steps', currentEvoker;
     let openSteps = new Set();
 
@@ -519,7 +580,6 @@
         if (openSteps.has(stepName)) openSteps.delete(stepName);
         else openSteps.add(stepName);
 
-        // Use the raw string for the CSS selector
         const stepDiv = document.querySelector(`.step[data-step="${stepName}"]`);
         if (stepDiv) {
             const content = stepDiv.querySelector('.step-content');
@@ -637,7 +697,6 @@
             const isDone = currentAmt >= mat.qty;
             if (isDone) completedItems++;
 
-            // Use the raw key for the CSS selector
             const input = document.querySelector(`input[data-key="${key}"]`);
             if (input) {
               if (document.activeElement !== input) {
@@ -672,7 +731,6 @@
               if (isStepFullyDone) btn.classList.add('reset');
               else btn.classList.remove('reset');
 
-              // Escape apostrophes for the inline JS function call
               const jsStep = step.replace(/'/g, "\\'");
               btn.setAttribute('onclick', `toggleMaxStep(event, '${jsStep}', ${isStepFullyDone})`);
             }
@@ -695,7 +753,6 @@
           const currentAmt = currentTotals[matName] || 0;
           const isDone = currentAmt >= totalQty;
 
-          // Use the raw string for the CSS selector
           const input = document.querySelector(`input[data-key="cumul-${matName}"]`);
           if (input) {
             if (document.activeElement !== input) {
@@ -710,7 +767,6 @@
 
             const label = matDiv.querySelector('.mat-label');
             if (label) {
-              // Escape apostrophes for the inline JS function call
               const jsMatName = matName.replace(/'/g, "\\'");
               label.setAttribute('onclick', `toggleMaxCumulative('${jsMatName}', ${totalQty}, ${currentAmt})`);
             }
@@ -732,7 +788,6 @@
           let totalItems = 0;
           let completedItems = 0;
 
-          // Escape apostrophes for inline JS function calls
           const jsStep = step.replace(/'/g, "\\'");
 
           const matHTML = mats.map(mat => {
@@ -748,13 +803,14 @@
             const isHidden = isDone && settings.hideCompleted;
             const hiddenClass = isHidden ? 'hidden' : '';
 
-            // Use raw `key` for data-key, use `jsKey` for oninput/onclick
+            const linkHTML = getLinkHTML(mat.name);
+
             return `<div class="material ${doneClass} ${hiddenClass}">
               <input type="number" class="mat-input" data-key="${key}"
                      value="${currentAmt}" min="0" max="${mat.qty}"
                      oninput="updateAmount('${jsKey}', this, ${mat.qty})">
               <span class="mat-label" onclick="toggleMax('${jsKey}', ${mat.qty})" title="Click to max/reset">
-                / ${mat.qty.toLocaleString()} ${mat.name}
+                / ${mat.qty.toLocaleString()} ${mat.name}${linkHTML}
               </span>
             </div>`;
           }).join('');
@@ -767,7 +823,6 @@
           const btnText = isStepFullyDone ? '↺ Reset' : '✓ Max All';
           const btnClass = isStepFullyDone ? 'reset' : '';
 
-          // Use raw `step` for data-step, use `jsStep` for onclick
           return `
             <div class="step ${stepHiddenClass} ${isStepFullyDone ? 'step-done' : ''}" data-step="${step}">
                 <div class="step-header" onclick="toggleStep('${jsStep}')">
@@ -804,16 +859,16 @@
             const isHidden = isDone && settings.hideCompleted;
             const hiddenClass = isHidden ? 'hidden' : '';
 
-            // Escape apostrophes for inline JS function calls
             const jsMatName = matName.replace(/'/g, "\\'");
 
-            // Use raw `matName` for data-key, use `jsMatName` for oninput/onclick
+            const linkHTML = getLinkHTML(matName);
+
             return `<div class="material ${doneClass} ${hiddenClass}">
               <input type="number" class="mat-input" data-key="cumul-${matName}"
                      value="${currentAmt}" min="0" max="${totalQty}"
                      oninput="updateCumulative('${jsMatName}', this)">
               <span class="mat-label" onclick="toggleMaxCumulative('${jsMatName}', ${totalQty}, ${currentAmt})" title="Click to max/reset all steps">
-                / ${totalQty.toLocaleString()} ${matName}
+                / ${totalQty.toLocaleString()} ${matName}${linkHTML}
               </span>
             </div>`;
           }).join('') + `</div>`;
