@@ -1,49 +1,49 @@
 <!--
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                 *%                                 
-                                                         --===+++##                                 
-                                               -==-+++=+*====--**=-==*#%                            
-                                          %##*+--=+-::::=-=++**####%%                               
-                             -:-:          +-+*+++==-====--++===+                                   
-                         ------::::-     #*###++++++=-=+===*#+--:=                                  
-                       --:-     :-:---       :-=+=++=---===+*++=:-                                  
-                       ----   =   -----     :-=++++=-==--++  ++++=-                                 
-                         =====      ====  +===+**+==++===       **==+ *=-----:-                     
-                                  +==-+=-=:--=======-===++++=               -:::-                   
-                                  +--===++=====+**+=----===++               -::::                   
-                                +++====#**   %%# *+=--::-=++ +     ===      ::::                    
-                                  *===++    %%%%++%+=-::=++=+#   =---:-:--:--                       
-                                    +=     +%%%%%*+%#+===+=+     -=                                 
-                 #+--+#@          #*++*##**%%%#+=*%%%%%%*=-        =                                
-                 %#*#*#%            +--*+=-=++=-+*++*#%%*====--=+                                   
-                  %*##            *=-+++*+***#*+=------*= ==++++*                                   
-                       =+#       #*=::=+#*==--===-----==--   + =                                    
-                    #=:+##%#     +:=+*+==---=--==-=-+=-=-:::= *=                                    
-                    +=+**+**    -*#**+++-=-+=--=--=-==-==----  ==                                   
-                     ##*+**##     #%##**#**+==+==++===-=+==--- =-                                   
-                      %###          #######%%####*++++=++-+#+====+                                  
-                                          +===+*%%##**+*+=+***###=+                                 
-                                        ::=---=+=+*#*####*##%**###**+                               
-                                      =-------++==+#%##%###   +*##%%#*                              
-                                     =+++++++**+++               ###%#=                             
-                                  -:=+++*    **+++                 *++                              
-                                  +=+*      *+++=-                                                  
-                                 *++=       ++++=-                                                  
-                                 *==:      ++++++                                                   
-                                  *+       ++++*                                                    
-                                          ++++*                                                     
-                                         *+++#                                                      
-                                         ++*                                                        
-                                        ++++                                                        
-                                       -++=                                                         
-                                      ++++                                                          
-                                    =-=+*                                                           
-                                    =--+                                                            
-                                    **                                                              
-                                                                                                    
-                                                                 
+
+
+
+                                                                 *%
+                                                         --===+++##
+                                               -==-+++=+*====--**=-==*#%
+                                          %##*+--=+-::::=-=++**####%%
+                             -:-:          +-+*+++==-====--++===+
+                         ------::::-     #*###++++++=-=+===*#+--:=
+                       --:-     :-:---       :-=+=++=---===+*++=:-
+                       ----   =   -----     :-=++++=-==--++  ++++=-
+                         =====      ====  +===+**+==++===       **==+ *=-----:-
+                                  +==-+=-=:--=======-===++++=               -:::-
+                                  +--===++=====+**+=----===++               -::::
+                                +++====#**   %%# *+=--::-=++ +     ===      ::::
+                                  *===++    %%%%++%+=-::=++=+#   =---:-:--:--
+                                    +=     +%%%%%*+%#+===+=+     -=
+                 #+--+#@          #*++*##**%%%#+=*%%%%%%*=-        =
+                 %#*#*#%            +--*+=-=++=-+*++*#%%*====--=+
+                  %*##            *=-+++*+***#*+=------*= ==++++*
+                       =+#       #*=::=+#*==--===-----==--   + =
+                    #=:+##%#     +:=+*+==---=--==-=-+=-=-:::= *=
+                    +=+**+**    -*#**+++-=-+=--=--=-==-==----  ==
+                     ##*+**##     #%##**#**+==+==++===-=+==--- =-
+                      %###          #######%%####*++++=++-+#+====+
+                                          +===+*%%##**+*+=+***###=+
+                                        ::=---=+=+*#*####*##%**###**+
+                                      =-------++==+#%##%###   +*##%%#*
+                                     =+++++++**+++               ###%#=
+                                  -:=+++*    **+++                 *++
+                                  +=+*      *+++=-
+                                 *++=       ++++=-
+                                 *==:      ++++++
+                                  *+       ++++*
+                                          ++++*
+                                         *+++#
+                                         ++*
+                                        ++++
+                                       -++=
+                                      ++++
+                                    =-=+*
+                                    =--+
+                                    **
+
+
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -52,58 +52,157 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Evoker Tracker</title>
   <style>
+
+    /* Dark Theme */
+    :root {
+        --bg: #181a1b;
+        --text: #e8e6e3;
+        --primary: #ff9f43;
+        --secondary: #50b390;
+        --tertiary: #45a2b8;
+        --accent: #e6b981;
+        --white: #242729;
+        --danger: #cc4b4b;
+        --danger-hover: #e65c5c;
+        --tab-bg: #3c4145;
+        --step-hover: #2c3033;
+        --done-bg: #1a2b21;
+        --gray-light: #3c4145;
+        --gray-text: #9aa0a6;
+    }
+
+    /* Light Theme */
+    [data-theme="dark"] {
+        --bg: #fdf6e3;
+        --text: #5c4a3d;
+        --primary: #ff9f43;
+        --secondary: #a8e6cf;
+        --tertiary: #8be9fd;
+        --accent: #d4a373;
+        --white: #fff;
+        --danger: #ff6b6b;
+        --danger-hover: #ee5253;
+        --tab-bg: #e6c280;
+        --step-hover: #fafafa;
+        --done-bg: #f0fdf4;
+        --gray-light: #eee;
+        --gray-text: #888;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
         font-family: sans-serif;
-        background: #fdf6e3; /* Creamy blonde background */
-        color: #5c4a3d;
+        background: var(--bg);
+        color: var(--text);
         padding: 20px;
         max-width: 600px;
         margin: 0 auto;
+        transition: background 0.3s, color 0.3s;
     }
     h1 {
         margin-bottom: 10px;
-        color: #d4a373; /* Darker blonde/brown text */
+        color: var(--accent);
         text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
+
+    .header-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
     select {
         padding: 8px;
         font-size: 16px;
-        margin-bottom: 20px;
-        border: 2px solid #a8e6cf;
+        border: 2px solid var(--secondary);
         border-radius: 4px;
-        background: #fff;
-        color: #5c4a3d;
+        background: var(--white);
+        color: var(--text);
         outline: none;
+        transition: background 0.3s, color 0.3s, border-color 0.3s;
     }
-    .step {
-        background: #fff;
-        border-left: 6px solid #ff9f43;
-        border-radius: 8px;
-        padding: 12px;
-        margin-bottom: 12px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+
+    .btn-reset {
+        padding: 8px 12px;
+        background: var(--danger);
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.2s;
     }
-    /* Alternating colors for the hair tips: Orange, Green, Blue */
-    .step:nth-child(3n+1) { border-left-color: #ff9f43; }
-    .step:nth-child(3n+2) { border-left-color: #a8e6cf; }
-    .step:nth-child(3n) { border-left-color: #8be9fd; }
+    .btn-reset:hover { background: var(--danger-hover); }
 
-    .step h3 { margin-bottom: 8px; cursor: pointer; user-select: none; color: #d4a373; }
-    .step h3:hover { color: #ff9f43; }
-    .material { display: flex; align-items: center; gap: 8px; padding: 4px 0; }
-    .material.done span { text-decoration: line-through; opacity: 0.5; }
-    input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; accent-color: #a8e6cf; }
-
-    .cumulative {
-        background: #fff;
-        border-top: 6px solid #8be9fd;
-        border-radius: 8px;
-        padding: 12px;
+    /* Progress Bar */
+    .progress-container {
+        width: 100%;
+        height: 20px;
+        background: var(--gray-light);
+        border-radius: 10px;
         margin-bottom: 20px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        overflow: hidden;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        position: relative;
     }
-    .cumulative h2 { margin-bottom: 8px; color: #d4a373; }
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(to right, var(--primary), var(--secondary), var(--tertiary));
+        width: 0%;
+        transition: width 0.4s ease;
+    }
+    .progress-text {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 2px;
+        font-size: 12px;
+        font-weight: bold;
+        color: var(--text);
+        text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+    }
+    [data-theme="dark"] .progress-text, {
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    }
+
+    /* Options Bar */
+    .options-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        font-size: 14px;
+        background: var(--white);
+        padding: 10px 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        transition: background 0.3s;
+    }
+    .options-bar label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        user-select: none;
+    }
+    .options-bar input[type="checkbox"] {
+        accent-color: var(--primary);
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+    }
+
+    .theme-selector {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .theme-selector select {
+        padding: 4px 8px;
+        font-size: 14px;
+        border: 1px solid var(--gray-light);
+    }
 
     .tabs { display: flex; gap: 8px; margin-bottom: 20px; }
     .tabs button {
@@ -111,310 +210,267 @@
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        background: #e6c280; /* Base blonde */
+        background: var(--tab-bg);
         color: #fff;
         font-weight: bold;
         transition: 0.2s;
     }
-    .tabs button:hover { background: #d4a373; }
+    .tabs button:hover { background: var(--accent); }
     .tabs button.active {
-        /* The gradient of her hair tips! */
-        background: linear-gradient(to right, #ff9f43, #a8e6cf, #8be9fd);
+        background: linear-gradient(to right, var(--primary), var(--secondary), var(--tertiary));
         color: #fff;
         text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
     }
+
+    /* Step Containers */
+    .step {
+        background: var(--white);
+        border-left: 6px solid var(--primary);
+        border-radius: 8px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        overflow: hidden;
+        transition: background 0.3s;
+    }
+    .step:nth-child(3n+1) { border-left-color: var(--primary); }
+    .step:nth-child(3n+2) { border-left-color: var(--secondary); }
+    .step:nth-child(3n) { border-left-color: var(--tertiary); }
+
+    .step-header {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        cursor: pointer;
+        user-select: none;
+        transition: background 0.2s;
+    }
+    .step-header:hover { background: var(--step-hover); }
+
+    .toggle-icon {
+        margin-right: 10px;
+        font-size: 12px;
+        color: var(--accent);
+        width: 12px;
+        text-align: center;
+    }
+
+    .step-header h3 { margin: 0; color: var(--accent); transition: color 0.2s; }
+
+    /* Completed Step Styling */
+    .step-done .step-header h3 {
+        color: var(--secondary);
+        text-decoration: line-through;
+        opacity: 0.8;
+    }
+
+    .btn-step-action {
+        margin-left: auto;
+        padding: 6px 10px;
+        background: var(--secondary);
+        color: var(--bg);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 12px;
+        transition: 0.2s;
+    }
+    .btn-step-action:hover { background: var(--tertiary); }
+    .btn-step-action.reset { background: var(--gray-light); color: var(--gray-text); }
+    .btn-step-action.reset:hover { background: var(--danger); color: #fff; }
+
+    .step-content { padding: 0 12px 12px 12px; }
+
+    .material {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 0;
+        transition: opacity 0.2s;
+    }
+
+    .mat-input {
+        width: 70px;
+        padding: 6px;
+        font-size: 16px;
+        border: 2px solid var(--tab-bg);
+        border-radius: 4px;
+        background: var(--white);
+        text-align: right;
+        color: var(--text);
+        outline: none;
+        transition: border-color 0.2s, background 0.3s, color 0.3s;
+    }
+    .mat-input:focus { border-color: var(--primary); }
+
+    .mat-label {
+        cursor: pointer;
+        user-select: none;
+        transition: color 0.2s;
+    }
+    .mat-label:hover { color: var(--primary); }
+
+    .material.done .mat-label { text-decoration: line-through; opacity: 0.5; }
+    .material.done .mat-input { border-color: var(--secondary); background-color: var(--done-bg); }
+
+    .cumulative {
+        background: var(--white);
+        border-top: 6px solid var(--tertiary);
+        border-radius: 8px;
+        padding: 12px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: background 0.3s;
+    }
+    .cumulative h2 { margin-bottom: 12px; color: var(--accent); }
+
+    /* Utility class for hiding completed items */
+    .hidden { display: none !important; }
+
   </style>
 </head>
 <body>
   <h1>Evoker Tracker</h1>
-  <select id="evokerSelect"></select>
+
+  <div class="header-controls">
+    <select id="evokerSelect"></select>
+    <button class="btn-reset" onclick="resetEvoker()">Reset Character</button>
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-fill" id="progressFill"></div>
+    <div class="progress-text" id="progressText">0%</div>
+  </div>
+
+  <div class="options-bar">
+    <label title="Hide materials and steps once they are fully completed.">
+      <input type="checkbox" id="optHideCompleted" onchange="toggleSetting('hideCompleted')"> Hide Completed
+    </label>
+
+    <div class="theme-selector">
+      <label for="themeSelect">Theme:</label>
+      <select id="themeSelect" onchange="changeTheme(this.value)">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+  </div>
+
   <div class="tabs">
     <button onclick="setView('steps')" id="tabSteps">Step by Step</button>
     <button onclick="setView('cumulative')" id="tabCumulative">Cumulative</button>
   </div>
+
   <div id="content"></div>
 
 <script>
-    // --- EASTER EGG ---
-    console.log(`
-
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                 *%                                 
-                                                         --===+++##                                 
-                                               -==-+++=+*====--**=-==*#%                            
-                                          %##*+--=+-::::=-=++**####%%                               
-                             -:-:          +-+*+++==-====--++===+                                   
-                         ------::::-     #*###++++++=-=+===*#+--:=                                  
-                       --:-     :-:---       :-=+=++=---===+*++=:-                                  
-                       ----   =   -----     :-=++++=-==--++  ++++=-                                 
-                         =====      ====  +===+**+==++===       **==+ *=-----:-                     
-                                  +==-+=-=:--=======-===++++=               -:::-                   
-                                  +--===++=====+**+=----===++               -::::                   
-                                +++====#**   %%# *+=--::-=++ +     ===      ::::                    
-                                  *===++    %%%%++%+=-::=++=+#   =---:-:--:--                       
-                                    +=     +%%%%%*+%#+===+=+     -=                                 
-                 #+--+#@          #*++*##**%%%#+=*%%%%%%*=-        =                                
-                 %#*#*#%            +--*+=-=++=-+*++*#%%*====--=+                                   
-                  %*##            *=-+++*+***#*+=------*= ==++++*                                   
-                       =+#       #*=::=+#*==--===-----==--   + =                                    
-                    #=:+##%#     +:=+*+==---=--==-=-+=-=-:::= *=                                    
-                    +=+**+**    -*#**+++-=-+=--=--=-==-==----  ==                                   
-                     ##*+**##     #%##**#**+==+==++===-=+==--- =-                                   
-                      %###          #######%%####*++++=++-+#+====+                                  
-                                          +===+*%%##**+*+=+***###=+                                 
-                                        ::=---=+=+*#*####*##%**###**+                               
-                                      =-------++==+#%##%###   +*##%%#*                              
-                                     =+++++++**+++               ###%#=                             
-                                  -:=+++*    **+++                 *++                              
-                                  +=+*      *+++=-                                                  
-                                 *++=       ++++=-                                                  
-                                 *==:      ++++++                                                   
-                                  *+       ++++*                                                    
-                                          ++++*                                                     
-                                         *+++#                                                      
-                                         ++*                                                        
-                                        ++++                                                        
-                                       -++=                                                         
-                                      ++++                                                          
-                                    =-=+*                                                           
-                                    =--+                                                            
-                                    **                                                              
-                                                                                                    
-                                                                                                    
-    `);
-    // ------------------
-
     const data = {
-  "evokers": {
-    "Maria Theresa": {
-      "element": "Water",
-      "summon": "Justice",
-      "weapon": "Rise of Justice",
       "steps": {
-        "Recruit Evoker": {"Justice Idean":20,"Aquaborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
-        "4★ Uncap": {"Water Verum Proof":20,"Aquaborne Astra":6,"Justice Idean":2},
-        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Analipsis":50,"Aqua Luster":50,"Sephira Stone":200,"Rupie":100000},
-        "Acquire Weapon": {"New World Quartz":5,"Aqua Luster":5,"Justice Veritas":20},
-        "Weapon 1★": {"New World Quartz":5,"Aqua Luster":15,"Justice Veritas":70,"Malice Fragment":30,"Water Verum Proof":100,"Aquaborne Astra":30},
-        "Weapon 2★": {"New World Quartz":10,"Aqua Luster":30,"Justice Veritas":100,"Verdant Azurite":20,"Water Verum Proof":150,"Aquaborne Astra":50,"Justice Idean":30},
-        "Weapon 3★": {"New World Quartz":20,"Aqua Luster":50,"Justice Veritas":130,"Wamdus's Jewel":20,"Water Verum Proof":200,"Aquaborne Astra":100,"Justice Idean":70},
-        "Weapon 4★": {"New World Quartz":20,"Aqua Luster":60,"Justice Veritas":150,"Wamdus's Jewel":30,"Water Verum Proof":250,"Aquaborne Astra":120,"Justice Idean":100},
-        "Weapon 5★": {"New World Quartz":30,"Aqua Luster":70,"Justice Veritas":170,"Abyssal Tragedy":30,"Bellator Fragment":30,"Aquaborne Astra":140,"Justice Idean":130,"Eternity Sand":3},
-        "Domain 1": {"Genesis Fragment":30,"Water Verum Proof":120,"Sephira Stone":5,"Chaotic Haze":20},
-        "Domain 2": {"Water Urn":30,"Water Verum Proof":240,"Aquaborne Astra":30,"Chaotic Haze":30,"Sephira Stone":10},
-        "Domain 3": {"Europa Omega Anima":10,"Justice Veritas":30,"Aquaborne Astra":40,"Justice Idean":40,"Bellator Fragment":10,"Sephira Stone":15},
-        "Domain 4": {"Abyssal Tragedy":30,"Aqua Luster":20,"Justice Veritas":50,"Aquaborne Astra":40,"Justice Idean":70,"Bellator Fragment":20,"Sephira Stone":20},
+        "Recruit": {"idean":20,"astra":200,"Sephira Stone":30,"Sephira Evolite":1},
+        "4★ Uncap": {"verum":20,"astra":6,"idean":2},
+        "Domain 1": {"Genesis Fragment":30,"verum":120,"Sephira Stone":5,"haze":20},
+        "Acquire Weapon": {"New World Quartz":5,"luster":5,"veritas":20},
+        "Weapon 1★": {"New World Quartz":5,"luster":15,"veritas":70,"Malice Fragment":30,"verum":100,"astra":30},
+        "Domain 2": {"urn":30,"verum":240,"astra":30,"haze":30,"Sephira Stone":10},
+        "Weapon 2★": {"New World Quartz":10,"luster":30,"veritas":100,"Verdant Azurite":20,"verum":150,"astra":50,"idean":30},
+        "Domain 3": {"omega_anima":10,"veritas":30,"astra":40,"idean":40,"fragment":10,"Sephira Stone":15},
+        "Weapon 3★": {"New World Quartz":20,"luster":50,"veritas":130,"jewel":20,"verum":200,"astra":100,"idean":70},
+        "Domain 4": {"nwq_mat":30,"luster":20,"veritas":50,"astra":40,"idean":70,"fragment":20,"Sephira Stone":20},
+        "Weapon 4★": {"New World Quartz":20,"luster":60,"veritas":150,"jewel":30,"verum":250,"astra":120,"idean":100},
+        "Weapon 5★": {"New World Quartz":30,"luster":70,"veritas":170,"nwq_mat":30,"fragment":30,"astra":140,"idean":130,"Eternity Sand":3},
+        "5★ Uncap": {"Sephira Evolite":1,"gospel":50,"luster":50,"Sephira Stone":200,"Rupie":100000},
         "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
+      },
+      "evokers": {
+        "Maria Theresa": { "dict": { "idean":"Justice Idean", "astra":"Aquaborne Astra", "verum":"Water Verum Proof", "haze":"Chaotic Haze", "luster":"Aqua Luster", "veritas":"Justice Veritas", "urn":"Water Urn", "omega_anima":"Europa Omega Anima", "fragment":"Bellator Fragment", "jewel":"Wamdus's Jewel", "nwq_mat":"Abyssal Tragedy", "gospel":"Gospel of Analipsis" } },
+        "Caim": { "dict": { "idean":"Hanged Man Idean", "astra":"Earthborne Astra", "verum":"Earth Verum Proof", "haze":"Chaotic Haze", "luster":"Terra Luster", "veritas":"Hanged Man Veritas", "urn":"Earth Urn", "omega_anima":"Alexiel Omega Anima", "fragment":"Aquila Fragment", "jewel":"Galleon's Jewel", "nwq_mat":"Insular Core", "gospel":"Gospel of Thysia" } },
+        "Nier": { "dict": { "idean":"Death Idean", "astra":"Darkborne Astra", "verum":["Water Verum Proof", "Earth Verum Proof"], "haze":"Chaotic Haze", "luster":["Aqua Luster", "Terra Luster"], "veritas":"Death Veritas", "urn":"Dark Urn", "omega_anima":"Avatar Omega Anima", "fragment":"Celsus Fragment", "jewel":"Fediel's Jewel", "nwq_mat":"Todestrieb", "gospel":["Gospel of Analipsis", "Gospel of Thysia"] } },
+        "Estarriola": { "dict": { "idean":"Temperance Idean", "astra":"Windborne Astra", "verum":"Wind Verum Proof", "haze":"Aurora Haze", "luster":"Ventus Luster", "veritas":"Temperance Veritas", "urn":"Wind Urn", "omega_anima":"Grimnir Omega Anima", "fragment":"Celsus Fragment", "jewel":"Ewiyar's Jewel", "nwq_mat":"Gale Rock", "gospel":"Gospel of Genea" } },
+        "Fraux": { "dict": { "idean":"Devil Idean", "astra":"Flameborne Astra", "verum":"Fire Verum Proof", "haze":"Aurora Haze", "luster":"Ignis Luster", "veritas":"Devil Veritas", "urn":"Fire Urn", "omega_anima":"Shiva Omega Anima", "fragment":"Aquila Fragment", "jewel":"Wilnas's Jewel", "nwq_mat":"Smoldering Rubble", "gospel":"Gospel of Egeiro" } },
+        "Lobelia": { "dict": { "idean":"Tower Idean", "astra":"Earthborne Astra", "verum":"Earth Verum Proof", "haze":"Chaotic Haze", "luster":"Terra Luster", "veritas":"Tower Veritas", "urn":"Earth Urn", "omega_anima":"Alexiel Omega Anima", "fragment":"Celsus Fragment", "jewel":"Galleon's Jewel", "nwq_mat":"Insular Core", "gospel":"Gospel of Thysia" } },
+        "Geisenborger": { "dict": { "idean":"Star Idean", "astra":"Lightborne Astra", "verum":["Fire Verum Proof", "Wind Verum Proof"], "haze":"Aurora Haze", "luster":["Ignis Luster", "Ventus Luster"], "veritas":"Star Veritas", "urn":"Light Urn", "omega_anima":"Metatron Omega Anima", "fragment":"Celsus Fragment", "jewel":"Lu Woh's Jewel", "nwq_mat":"Thunderbolt Wheel", "gospel":["Gospel of Egeiro", "Gospel of Genea"] } },
+        "Haaselia": { "dict": { "idean":"Moon Idean", "astra":"Aquaborne Astra", "verum":"Water Verum Proof", "haze":"Aurora Haze", "luster":"Aqua Luster", "veritas":"Moon Veritas", "urn":"Water Urn", "omega_anima":"Europa Omega Anima", "fragment":"Bellator Fragment", "jewel":"Wamdus's Jewel", "nwq_mat":"Abyssal Tragedy", "gospel":"Gospel of Analipsis" } },
+        "Alanaan": { "dict": { "idean":"Sun Idean", "astra":"Flameborne Astra", "verum":"Fire Verum Proof", "haze":"Aurora Haze", "luster":"Ignis Luster", "veritas":"Sun Veritas", "urn":"Fire Urn", "omega_anima":"Shiva Omega Anima", "fragment":"Aquila Fragment", "jewel":"Wilnas's Jewel", "nwq_mat":"Smoldering Rubble", "gospel":"Gospel of Egeiro" } },
+        "Katzelia": { "dict": { "idean":"Judgement Idean", "astra":"Windborne Astra", "verum":"Wind Verum Proof", "haze":"Aurora Haze", "luster":"Ventus Luster", "veritas":"Judgement Veritas", "urn":"Wind Urn", "omega_anima":"Grimnir Omega Anima", "fragment":"Bellator Fragment", "jewel":"Ewiyar's Jewel", "nwq_mat":"Gale Rock", "gospel":"Gospel of Genea" } }
       }
-    },
-    "Caim": {
-      "element": "Earth",
-      "summon": "The Hanged Man",
-      "weapon": "Binds of The Hanged Man",
-      "steps": {
-        "Recruit Evoker": {"Hanged Man Idean":20,"Earthborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
-        "4★ Uncap": {"Earth Verum Proof":20,"Earthborne Astra":6,"Hanged Man Idean":2},
-        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Thysia":50,"Terra Luster":50,"Sephira Stone":200,"Rupie":100000},
-        "Acquire Weapon": {"New World Quartz":5,"Terra Luster":5,"Hanged Man Veritas":20},
-        "Weapon 1★": {"New World Quartz":5,"Terra Luster":15,"Hanged Man Veritas":70,"Malice Fragment":30,"Earth Verum Proof":100,"Earthborne Astra":30},
-        "Weapon 2★": {"New World Quartz":10,"Terra Luster":30,"Hanged Man Veritas":100,"Verdant Azurite":20,"Earth Verum Proof":150,"Earthborne Astra":50,"Hanged Man Idean":30},
-        "Weapon 3★": {"New World Quartz":20,"Terra Luster":50,"Hanged Man Veritas":130,"Galleon's Jewel":20,"Earth Verum Proof":200,"Earthborne Astra":100,"Hanged Man Idean":70},
-        "Weapon 4★": {"New World Quartz":20,"Terra Luster":60,"Hanged Man Veritas":150,"Galleon's Jewel":30,"Earth Verum Proof":250,"Earthborne Astra":120,"Hanged Man Idean":100},
-        "Weapon 5★": {"New World Quartz":30,"Terra Luster":70,"Hanged Man Veritas":170,"Insular Core":30,"Aquila Fragment":30,"Earthborne Astra":140,"Hanged Man Idean":130,"Eternity Sand":3},
-        "Domain 1": {"Genesis Fragment":30,"Earth Verum Proof":120,"Sephira Stone":5,"Chaotic Haze":20},
-        "Domain 2": {"Earth Urn":30,"Earth Verum Proof":240,"Earthborne Astra":30,"Chaotic Haze":30,"Sephira Stone":10},
-        "Domain 3": {"Alexiel Omega Anima":10,"Hanged Man Veritas":30,"Earthborne Astra":40,"Hanged Man Idean":40,"Aquila Fragment":10,"Sephira Stone":15},
-        "Domain 4": {"Insular Core":30,"Terra Luster":20,"Hanged Man Veritas":50,"Earthborne Astra":40,"Hanged Man Idean":70,"Aquila Fragment":20,"Sephira Stone":20},
-        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
-      }
-    },
-    "Nier": {
-      "element": "Dark",
-      "summon": "Death",
-      "weapon": "Pain of Death",
-      "steps": {
-        "Recruit Evoker": {"Death Idean":20,"Darkborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
-        "4★ Uncap": {"Water Verum Proof":10,"Earth Verum Proof":10,"Darkborne Astra":6,"Death Idean":2},
-        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Analipsis":25,"Gospel of Thysia":25,"Aqua Luster":25,"Terra Luster":25,"Sephira Stone":200,"Rupie":100000},
-        "Acquire Weapon": {"New World Quartz":5,"Aqua Luster":3,"Terra Luster":3,"Death Veritas":20},
-        "Weapon 1★": {"New World Quartz":5,"Aqua Luster":7,"Terra Luster":7,"Death Veritas":70,"Malice Fragment":30,"Water Verum Proof":50,"Earth Verum Proof":50,"Darkborne Astra":30},
-        "Weapon 2★": {"New World Quartz":10,"Aqua Luster":15,"Terra Luster":15,"Death Veritas":100,"Verdant Azurite":20,"Water Verum Proof":75,"Earth Verum Proof":75,"Darkborne Astra":50,"Death Idean":30},
-        "Weapon 3★": {"New World Quartz":20,"Aqua Luster":25,"Terra Luster":25,"Death Veritas":130,"Fediel's Jewel":20,"Water Verum Proof":100,"Earth Verum Proof":100,"Darkborne Astra":100,"Death Idean":70},
-        "Weapon 4★": {"New World Quartz":20,"Aqua Luster":30,"Terra Luster":30,"Death Veritas":150,"Fediel's Jewel":30,"Water Verum Proof":125,"Earth Verum Proof":125,"Darkborne Astra":120,"Death Idean":100},
-        "Weapon 5★": {"New World Quartz":30,"Aqua Luster":35,"Terra Luster":35,"Death Veritas":170,"Todestrieb":30,"Celsus Fragment":30,"Darkborne Astra":140,"Death Idean":130,"Eternity Sand":3},
-        "Domain 1": {"Genesis Fragment":30,"Water Verum Proof":60,"Earth Verum Proof":60,"Sephira Stone":5,"Chaotic Haze":20},
-        "Domain 2": {"Dark Urn":30,"Water Verum Proof":120,"Earth Verum Proof":120,"Darkborne Astra":30,"Chaotic Haze":30,"Sephira Stone":10},
-        "Domain 3": {"Avatar Omega Anima":10,"Death Veritas":30,"Darkborne Astra":40,"Death Idean":40,"Celsus Fragment":10,"Sephira Stone":15},
-        "Domain 4": {"Todestrieb":30,"Aqua Luster":10,"Terra Luster":10,"Death Veritas":50,"Darkborne Astra":40,"Death Idean":70,"Celsus Fragment":20,"Sephira Stone":20},
-        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
-      }
-    },
-    "Estarriola": {
-      "element": "Wind",
-      "summon": "Temperance",
-      "weapon": "Theater of Temperance",
-      "steps": {
-        "Recruit Evoker": {"Temperance Idean":20,"Windborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
-        "4★ Uncap": {"Wind Verum Proof":20,"Windborne Astra":6,"Temperance Idean":2},
-        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Genea":50,"Ventus Luster":50,"Sephira Stone":200,"Rupie":100000},
-        "Acquire Weapon": {"New World Quartz":5,"Ventus Luster":5,"Temperance Veritas":20},
-        "Weapon 1★": {"New World Quartz":5,"Ventus Luster":15,"Temperance Veritas":70,"Malice Fragment":30,"Wind Verum Proof":100,"Windborne Astra":30},
-        "Weapon 2★": {"New World Quartz":10,"Ventus Luster":30,"Temperance Veritas":100,"Verdant Azurite":20,"Wind Verum Proof":150,"Windborne Astra":50,"Temperance Idean":30},
-        "Weapon 3★": {"New World Quartz":20,"Ventus Luster":50,"Temperance Veritas":130,"Ewiyar's Jewel":20,"Wind Verum Proof":200,"Windborne Astra":100,"Temperance Idean":70},
-        "Weapon 4★": {"New World Quartz":20,"Ventus Luster":60,"Temperance Veritas":150,"Ewiyar's Jewel":30,"Wind Verum Proof":250,"Windborne Astra":120,"Temperance Idean":100},
-        "Weapon 5★": {"New World Quartz":30,"Ventus Luster":70,"Temperance Veritas":170,"Gale Rock":30,"Celsus Fragment":30,"Windborne Astra":140,"Temperance Idean":130,"Eternity Sand":3},
-        "Domain 1": {"Genesis Fragment":30,"Wind Verum Proof":120,"Sephira Stone":5,"Aurora Haze":20},
-        "Domain 2": {"Wind Urn":30,"Wind Verum Proof":240,"Windborne Astra":30,"Aurora Haze":30,"Sephira Stone":10},
-        "Domain 3": {"Grimnir Omega Anima":10,"Temperance Veritas":30,"Windborne Astra":40,"Temperance Idean":40,"Celsus Fragment":10,"Sephira Stone":15},
-        "Domain 4": {"Gale Rock":30,"Ventus Luster":20,"Temperance Veritas":50,"Windborne Astra":40,"Temperance Idean":70,"Celsus Fragment":20,"Sephira Stone":20},
-        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
-      }
-    },
-    "Fraux": {
-      "element": "Fire",
-      "summon": "The Devil",
-      "weapon": "Kiss of The Devil",
-      "steps": {
-        "Recruit Evoker": {"Devil Idean":20,"Flameborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
-        "4★ Uncap": {"Fire Verum Proof":20,"Flameborne Astra":6,"Devil Idean":2},
-        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Egeiro":50,"Ignis Luster":50,"Sephira Stone":200,"Rupie":100000},
-        "Acquire Weapon": {"New World Quartz":5,"Ignis Luster":5,"Devil Veritas":20},
-        "Weapon 1★": {"New World Quartz":5,"Ignis Luster":15,"Devil Veritas":70,"Malice Fragment":30,"Fire Verum Proof":100,"Flameborne Astra":30},
-        "Weapon 2★": {"New World Quartz":10,"Ignis Luster":30,"Devil Veritas":100,"Verdant Azurite":20,"Fire Verum Proof":150,"Flameborne Astra":50,"Devil Idean":30},
-        "Weapon 3★": {"New World Quartz":20,"Ignis Luster":50,"Devil Veritas":130,"Wilnas's Jewel":20,"Fire Verum Proof":200,"Flameborne Astra":100,"Devil Idean":70},
-        "Weapon 4★": {"New World Quartz":20,"Ignis Luster":60,"Devil Veritas":150,"Wilnas's Jewel":30,"Fire Verum Proof":250,"Flameborne Astra":120,"Devil Idean":100},
-        "Weapon 5★": {"New World Quartz":30,"Ignis Luster":70,"Devil Veritas":170,"Smoldering Rubble":30,"Aquila Fragment":30,"Flameborne Astra":140,"Devil Idean":130,"Eternity Sand":3},
-        "Domain 1": {"Genesis Fragment":30,"Fire Verum Proof":120,"Sephira Stone":5,"Aurora Haze":20},
-        "Domain 2": {"Fire Urn":30,"Fire Verum Proof":240,"Flameborne Astra":30,"Aurora Haze":30,"Sephira Stone":10},
-        "Domain 3": {"Shiva Omega Anima":10,"Devil Veritas":30,"Flameborne Astra":40,"Devil Idean":40,"Aquila Fragment":10,"Sephira Stone":15},
-        "Domain 4": {"Smoldering Rubble":30,"Ignis Luster":20,"Devil Veritas":50,"Flameborne Astra":40,"Devil Idean":70,"Aquila Fragment":20,"Sephira Stone":20},
-        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
-      }
-    },
-    "Lobelia": {
-      "element": "Earth",
-      "summon": "The Tower",
-      "weapon": "Collapse of The Tower",
-      "steps": {
-        "Recruit Evoker": {"Tower Idean":20,"Earthborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
-        "4★ Uncap": {"Earth Verum Proof":20,"Earthborne Astra":6,"Tower Idean":2},
-        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Thysia":50,"Terra Luster":50,"Sephira Stone":200,"Rupie":100000},
-        "Acquire Weapon": {"New World Quartz":5,"Terra Luster":5,"Tower Veritas":20},
-        "Weapon 1★": {"New World Quartz":5,"Terra Luster":15,"Tower Veritas":70,"Malice Fragment":30,"Earth Verum Proof":100,"Earthborne Astra":30},
-        "Weapon 2★": {"New World Quartz":10,"Terra Luster":30,"Tower Veritas":100,"Verdant Azurite":20,"Earth Verum Proof":150,"Earthborne Astra":50,"Tower Idean":30},
-        "Weapon 3★": {"New World Quartz":20,"Terra Luster":50,"Tower Veritas":130,"Galleon's Jewel":20,"Earth Verum Proof":200,"Earthborne Astra":100,"Tower Idean":70},
-        "Weapon 4★": {"New World Quartz":20,"Terra Luster":60,"Tower Veritas":150,"Galleon's Jewel":30,"Earth Verum Proof":250,"Earthborne Astra":120,"Tower Idean":100},
-        "Weapon 5★": {"New World Quartz":30,"Terra Luster":70,"Tower Veritas":170,"Insular Core":30,"Celsus Fragment":30,"Earthborne Astra":140,"Tower Idean":130,"Eternity Sand":3},
-        "Domain 1": {"Genesis Fragment":30,"Earth Verum Proof":120,"Sephira Stone":5,"Chaotic Haze":20},
-        "Domain 2": {"Earth Urn":30,"Earth Verum Proof":240,"Earthborne Astra":30,"Chaotic Haze":30,"Sephira Stone":10},
-        "Domain 3": {"Alexiel Omega Anima":10,"Tower Veritas":30,"Earthborne Astra":40,"Tower Idean":40,"Celsus Fragment":10,"Sephira Stone":15},
-        "Domain 4": {"Insular Core":30,"Terra Luster":20,"Tower Veritas":50,"Earthborne Astra":40,"Tower Idean":70,"Celsus Fragment":20,"Sephira Stone":20},
-        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
-      }
-    },
-    "Geisenborger": {
-      "element": "Light",
-      "summon": "The Star",
-      "weapon": "Shooting of The Star",
-      "steps": {
-        "Recruit Evoker": {"Star Idean":20,"Lightborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
-        "4★ Uncap": {"Fire Verum Proof":10,"Wind Verum Proof":10,"Lightborne Astra":6,"Star Idean":2},
-        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Egeiro":25,"Gospel of Genea":25,"Ignis Luster":25,"Ventus Luster":25,"Sephira Stone":200,"Rupie":100000},
-        "Acquire Weapon": {"New World Quartz":5,"Ignis Luster":3,"Ventus Luster":3,"Star Veritas":20},
-        "Weapon 1★": {"New World Quartz":5,"Ignis Luster":7,"Ventus Luster":7,"Star Veritas":70,"Malice Fragment":30,"Fire Verum Proof":50,"Wind Verum Proof":50,"Lightborne Astra":30},
-        "Weapon 2★": {"New World Quartz":10,"Ignis Luster":15,"Ventus Luster":15,"Star Veritas":100,"Verdant Azurite":20,"Fire Verum Proof":75,"Wind Verum Proof":75,"Lightborne Astra":50,"Star Idean":30},
-        "Weapon 3★": {"New World Quartz":20,"Ignis Luster":25,"Ventus Luster":25,"Star Veritas":130,"Lu Woh's Jewel":20,"Fire Verum Proof":100,"Wind Verum Proof":100,"Lightborne Astra":100,"Star Idean":70},
-        "Weapon 4★": {"New World Quartz":20,"Ignis Luster":30,"Ventus Luster":30,"Star Veritas":150,"Lu Woh's Jewel":30,"Fire Verum Proof":125,"Wind Verum Proof":125,"Lightborne Astra":120,"Star Idean":100},
-        "Weapon 5★": {"New World Quartz":30,"Ignis Luster":35,"Ventus Luster":35,"Star Veritas":170,"Thunderbolt Wheel":30,"Celsus Fragment":30,"Lightborne Astra":140,"Star Idean":130,"Eternity Sand":3},
-        "Domain 1": {"Genesis Fragment":30,"Fire Verum Proof":60,"Wind Verum Proof":60,"Sephira Stone":5,"Aurora Haze":20},
-        "Domain 2": {"Light Urn":30,"Fire Verum Proof":120,"Wind Verum Proof":120,"Lightborne Astra":30,"Aurora Haze":30,"Sephira Stone":10},
-        "Domain 3": {"Metatron Omega Anima":10,"Star Veritas":30,"Lightborne Astra":40,"Star Idean":40,"Celsus Fragment":10,"Sephira Stone":15},
-        "Domain 4": {"Thunderbolt Wheel":30,"Ignis Luster":10,"Ventus Luster":10,"Star Veritas":50,"Lightborne Astra":40,"Star Idean":70,"Celsus Fragment":20,"Sephira Stone":20},
-        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
-      }
-    },
-    "Haaselia": {
-      "element": "Water",
-      "summon": "The Moon",
-      "weapon": "Reflection of The Moon",
-      "steps": {
-        "Recruit Evoker": {"Moon Idean":20,"Aquaborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
-        "4★ Uncap": {"Water Verum Proof":20,"Aquaborne Astra":6,"Moon Idean":2},
-        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Analipsis":50,"Aqua Luster":50,"Sephira Stone":200,"Rupie":100000},
-        "Acquire Weapon": {"New World Quartz":5,"Aqua Luster":5,"Moon Veritas":20},
-        "Weapon 1★": {"New World Quartz":5,"Aqua Luster":15,"Moon Veritas":70,"Malice Fragment":30,"Water Verum Proof":100,"Aquaborne Astra":30},
-        "Weapon 2★": {"New World Quartz":10,"Aqua Luster":30,"Moon Veritas":100,"Verdant Azurite":20,"Water Verum Proof":150,"Aquaborne Astra":50,"Moon Idean":30},
-        "Weapon 3★": {"New World Quartz":20,"Aqua Luster":50,"Moon Veritas":130,"Wamdus's Jewel":20,"Water Verum Proof":200,"Aquaborne Astra":100,"Moon Idean":70},
-        "Weapon 4★": {"New World Quartz":20,"Aqua Luster":60,"Moon Veritas":150,"Wamdus's Jewel":30,"Water Verum Proof":250,"Aquaborne Astra":120,"Moon Idean":100},
-        "Weapon 5★": {"New World Quartz":30,"Aqua Luster":70,"Moon Veritas":170,"Abyssal Tragedy":30,"Bellator Fragment":30,"Aquaborne Astra":140,"Moon Idean":130,"Eternity Sand":3},
-        "Domain 1": {"Genesis Fragment":30,"Water Verum Proof":120,"Sephira Stone":5,"Aurora Haze":20},
-        "Domain 2": {"Water Urn":30,"Water Verum Proof":240,"Aquaborne Astra":30,"Aurora Haze":30,"Sephira Stone":10},
-        "Domain 3": {"Europa Omega Anima":10,"Moon Veritas":30,"Aquaborne Astra":40,"Moon Idean":40,"Bellator Fragment":10,"Sephira Stone":15},
-        "Domain 4": {"Abyssal Tragedy":30,"Aqua Luster":20,"Moon Veritas":50,"Aquaborne Astra":40,"Moon Idean":70,"Bellator Fragment":20,"Sephira Stone":20},
-        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
-      }
-    },
-    "Alanaan": {
-      "element": "Fire",
-      "summon": "The Sun",
-      "weapon": "Heat of The Sun",
-      "steps": {
-        "Recruit Evoker": {"Sun Idean":20,"Flameborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
-        "4★ Uncap": {"Fire Verum Proof":20,"Flameborne Astra":6,"Sun Idean":2},
-        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Egeiro":50,"Ignis Luster":50,"Sephira Stone":200,"Rupie":100000},
-        "Acquire Weapon": {"New World Quartz":5,"Ignis Luster":5,"Sun Veritas":20},
-        "Weapon 1★": {"New World Quartz":5,"Ignis Luster":15,"Sun Veritas":70,"Malice Fragment":30,"Fire Verum Proof":100,"Flameborne Astra":30},
-        "Weapon 2★": {"New World Quartz":10,"Ignis Luster":30,"Sun Veritas":100,"Verdant Azurite":20,"Fire Verum Proof":150,"Flameborne Astra":50,"Sun Idean":30},
-        "Weapon 3★": {"New World Quartz":20,"Ignis Luster":50,"Sun Veritas":130,"Wilnas's Jewel":20,"Fire Verum Proof":200,"Flameborne Astra":100,"Sun Idean":70},
-        "Weapon 4★": {"New World Quartz":20,"Ignis Luster":60,"Sun Veritas":150,"Wilnas's Jewel":30,"Fire Verum Proof":250,"Flameborne Astra":120,"Sun Idean":100},
-        "Weapon 5★": {"New World Quartz":30,"Ignis Luster":70,"Sun Veritas":170,"Smoldering Rubble":30,"Aquila Fragment":30,"Flameborne Astra":140,"Sun Idean":130,"Eternity Sand":3},
-        "Domain 1": {"Genesis Fragment":30,"Fire Verum Proof":120,"Sephira Stone":5,"Aurora Haze":20},
-        "Domain 2": {"Fire Urn":30,"Fire Verum Proof":240,"Flameborne Astra":30,"Aurora Haze":30,"Sephira Stone":10},
-        "Domain 3": {"Shiva Omega Anima":10,"Sun Veritas":30,"Flameborne Astra":40,"Sun Idean":40,"Aquila Fragment":10,"Sephira Stone":15},
-        "Domain 4": {"Smoldering Rubble":30,"Ignis Luster":20,"Sun Veritas":50,"Flameborne Astra":40,"Sun Idean":70,"Aquila Fragment":20,"Sephira Stone":20},
-        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
-      }
-    },
-    "Katzelia": {
-      "element": "Wind",
-      "summon": "Judgement",
-      "weapon": "Melody of Judgement",
-      "steps": {
-        "Recruit Evoker": {"Judgement Idean":20,"Windborne Astra":200,"Sephira Stone":30,"Sephira Evolite":1},
-        "4★ Uncap": {"Wind Verum Proof":20,"Windborne Astra":6,"Judgement Idean":2},
-        "5★ Uncap": {"Sephira Evolite":1,"Gospel of Genea":50,"Ventus Luster":50,"Sephira Stone":200,"Rupie":100000},
-        "Acquire Weapon": {"New World Quartz":5,"Ventus Luster":5,"Judgement Veritas":20},
-        "Weapon 1★": {"New World Quartz":5,"Ventus Luster":15,"Judgement Veritas":70,"Malice Fragment":30,"Wind Verum Proof":100,"Windborne Astra":30},
-        "Weapon 2★": {"New World Quartz":10,"Ventus Luster":30,"Judgement Veritas":100,"Verdant Azurite":20,"Wind Verum Proof":150,"Windborne Astra":50,"Judgement Idean":30},
-        "Weapon 3★": {"New World Quartz":20,"Ventus Luster":50,"Judgement Veritas":130,"Ewiyar's Jewel":20,"Wind Verum Proof":200,"Windborne Astra":100,"Judgement Idean":70},
-        "Weapon 4★": {"New World Quartz":20,"Ventus Luster":60,"Judgement Veritas":150,"Ewiyar's Jewel":30,"Wind Verum Proof":250,"Windborne Astra":120,"Judgement Idean":100},
-        "Weapon 5★": {"New World Quartz":30,"Ventus Luster":70,"Judgement Veritas":170,"Gale Rock":30,"Bellator Fragment":30,"Windborne Astra":140,"Judgement Idean":130,"Eternity Sand":3},
-        "Domain 1": {"Genesis Fragment":30,"Wind Verum Proof":120,"Sephira Stone":5,"Aurora Haze":20},
-        "Domain 2": {"Wind Urn":30,"Wind Verum Proof":240,"Windborne Astra":30,"Aurora Haze":30,"Sephira Stone":10},
-        "Domain 3": {"Grimnir Omega Anima":10,"Judgement Veritas":30,"Windborne Astra":40,"Judgement Idean":40,"Bellator Fragment":10,"Sephira Stone":15},
-        "Domain 4": {"Gale Rock":30,"Ventus Luster":20,"Judgement Veritas":50,"Windborne Astra":40,"Judgement Idean":70,"Bellator Fragment":20,"Sephira Stone":20},
-        "Fourth Skill": {"Sunlight Stone":1,"World Idean":100,"New World Quartz":30,"Damascus Crystal":10}
-      }
-    }
-  }
-};
+    };
 
     let view = 'steps', currentEvoker;
+    let openSteps = new Set();
 
     const saved = () => JSON.parse(localStorage.getItem('evokerTracker') || '{}');
     const save = (s) => localStorage.setItem('evokerTracker', JSON.stringify(s));
 
+    const getSettings = () => JSON.parse(localStorage.getItem('evokerSettings') || '{"hideCompleted": false, "theme": "light"}');
+    const saveSettings = (s) => localStorage.setItem('evokerSettings', JSON.stringify(s));
+
+    function getSplitQty(qty) {
+        if (qty === 5) return 3;
+        if (qty === 15) return 7;
+        return qty / 2;
+    }
+
+    function getResolvedMaterials(evokerName, stepName) {
+        const evoker = data.evokers[evokerName];
+        const mats = data.steps[stepName];
+        let resolved = [];
+
+        for (const [matKey, qty] of Object.entries(mats)) {
+            const dictVal = evoker.dict[matKey] || matKey;
+            if (Array.isArray(dictVal)) {
+                const splitQty = getSplitQty(qty);
+                resolved.push({ name: dictVal[0], qty: splitQty });
+                resolved.push({ name: dictVal[1], qty: splitQty });
+            } else {
+                resolved.push({ name: dictVal, qty: qty });
+            }
+        }
+        return resolved;
+    }
+
+    function migrateData() {
+        const s = saved();
+        let modified = false;
+        for (const evokerName of Object.keys(data.evokers)) {
+            for (const stepName of Object.keys(data.steps)) {
+                const mats = getResolvedMaterials(evokerName, stepName);
+                for (const mat of mats) {
+                    const key = `${evokerName}|${stepName}|${mat.name}`;
+                    if (s[key] === true) {
+                        s[key] = mat.qty;
+                        modified = true;
+                    }
+                }
+            }
+        }
+        if (modified) save(s);
+    }
+
     function init() {
+      migrateData();
+
       const sel = document.getElementById('evokerSelect');
       for (const name of Object.keys(data.evokers)) {
         const opt = document.createElement('option');
         opt.value = opt.textContent = name;
         sel.appendChild(opt);
       }
-      sel.addEventListener('change', () => { currentEvoker = sel.value; render(); });
+      sel.addEventListener('change', () => {
+          currentEvoker = sel.value;
+          openSteps.clear();
+          render();
+      });
       currentEvoker = sel.value;
+
+      const settings = getSettings();
+      document.getElementById('optHideCompleted').checked = settings.hideCompleted;
+
+      // Initialize Theme
+      if (settings.theme) {
+          document.getElementById('themeSelect').value = settings.theme;
+          document.documentElement.setAttribute('data-theme', settings.theme);
+      }
+
       setView('steps');
     }
 
@@ -425,49 +481,335 @@
       render();
     }
 
-    function toggle(key) {
-      const s = saved();
-      s[key] = !s[key];
-      save(s);
-      render();
+    function toggleSetting(settingKey) {
+      const settings = getSettings();
+      settings[settingKey] = document.getElementById('opt' + settingKey.charAt(0).toUpperCase() + settingKey.slice(1)).checked;
+      saveSettings(settings);
+      updateUI();
     }
 
-        function render() {
-      const el = document.getElementById('content');
-      const evoker = data.evokers[currentEvoker];
+    function changeTheme(themeName) {
+      document.documentElement.setAttribute('data-theme', themeName);
+      const settings = getSettings();
+      settings.theme = themeName;
+      saveSettings(settings);
+    }
+
+    function resetEvoker() {
+      if (!confirm(`Are you sure you want to reset ALL progress for ${currentEvoker}? This cannot be undone.`)) return;
       const s = saved();
+      for (let key in s) {
+        if (key.startsWith(currentEvoker + '|')) delete s[key];
+      }
+      save(s);
+      updateUI();
+    }
+
+    function toggleStep(stepName) {
+        if (openSteps.has(stepName)) openSteps.delete(stepName);
+        else openSteps.add(stepName);
+
+        // Use the raw string for the CSS selector
+        const stepDiv = document.querySelector(`.step[data-step="${stepName}"]`);
+        if (stepDiv) {
+            const content = stepDiv.querySelector('.step-content');
+            const icon = stepDiv.querySelector('.toggle-icon');
+            if (openSteps.has(stepName)) {
+                content.classList.remove('hidden');
+                icon.textContent = '▼';
+            } else {
+                content.classList.add('hidden');
+                icon.textContent = '▶';
+            }
+        }
+    }
+
+    function toggleMaxStep(event, stepName, isFullyDone) {
+        event.stopPropagation();
+        const s = saved();
+        const mats = getResolvedMaterials(currentEvoker, stepName);
+
+        for (const mat of mats) {
+            const key = `${currentEvoker}|${stepName}|${mat.name}`;
+            s[key] = isFullyDone ? 0 : mat.qty;
+        }
+        save(s);
+        updateUI();
+    }
+
+    function updateAmount(key, inputElem, max) {
+      const s = saved();
+      let val = parseInt(inputElem.value, 10) || 0;
+
+      if (val < 0) { val = 0; inputElem.value = 0; }
+      if (val > max) { val = max; inputElem.value = max; }
+
+      s[key] = val;
+      save(s);
+      updateUI();
+    }
+
+    function toggleMax(key, maxQty) {
+      const s = saved();
+      const current = parseInt(s[key]) || 0;
+      s[key] = (current >= maxQty) ? 0 : maxQty;
+      save(s);
+      updateUI();
+    }
+
+    function updateCumulative(matName, inputElem) {
+      const s = saved();
+      let remaining = parseInt(inputElem.value, 10) || 0;
+
+      const max = parseInt(inputElem.getAttribute('max'), 10);
+      if (remaining < 0) { remaining = 0; inputElem.value = 0; }
+      if (remaining > max) { remaining = max; inputElem.value = max; }
+
+      for (const stepName of Object.keys(data.steps)) {
+        const mats = getResolvedMaterials(currentEvoker, stepName);
+        for (const mat of mats) {
+          if (mat.name === matName) {
+            const key = `${currentEvoker}|${stepName}|${mat.name}`;
+            if (remaining >= mat.qty) {
+              s[key] = mat.qty;
+              remaining -= mat.qty;
+            } else {
+              s[key] = remaining;
+              remaining = 0;
+            }
+          }
+        }
+      }
+      save(s);
+      updateUI();
+    }
+
+    function toggleMaxCumulative(matName, totalQty, currentAmt) {
+      const dummyInput = { value: currentAmt >= totalQty ? 0 : totalQty, getAttribute: () => totalQty };
+      updateCumulative(matName, dummyInput);
+    }
+
+    function updateProgressBar(s) {
+      let totalNeeded = 0;
+      let totalGathered = 0;
+
+      for (const stepName of Object.keys(data.steps)) {
+        const mats = getResolvedMaterials(currentEvoker, stepName);
+        for (const mat of mats) {
+          if (mat.name === "Rupie") continue;
+          const key = `${currentEvoker}|${stepName}|${mat.name}`;
+          const currentAmt = parseInt(s[key]) || 0;
+          totalNeeded += mat.qty;
+          totalGathered += Math.min(currentAmt, mat.qty);
+        }
+      }
+
+      const percentage = totalNeeded === 0 ? 0 : Math.floor((totalGathered / totalNeeded) * 100);
+      document.getElementById('progressFill').style.width = percentage + '%';
+      document.getElementById('progressText').innerText = percentage + '% Complete';
+    }
+
+    function updateUI() {
+      const s = saved();
+      const settings = getSettings();
+      updateProgressBar(s);
 
       if (view === 'steps') {
-        el.innerHTML = Object.entries(evoker.steps).map(([step, mats]) =>
-          `<div class="step"><h3>${step}</h3>` +
-          Object.entries(mats).map(([mat, qty]) => {
-            const key = `${currentEvoker}|${step}|${mat}`;
-            const done = s[key] ? 'done' : '';
-            // Changed div to label, moved event to onchange
-            return `<label class="material ${done}" style="cursor:pointer;">
-              <input type="checkbox" onchange="toggle('${key}')" ${s[key] ? 'checked' : ''}>
-              <span>${mat} ×${qty.toLocaleString()}</span>
-            </label>`;
-          }).join('') + `</div>`
-        ).join('');
+        Object.keys(data.steps).forEach(step => {
+          const mats = getResolvedMaterials(currentEvoker, step);
+          let totalItems = 0;
+          let completedItems = 0;
+
+          mats.forEach(mat => {
+            totalItems++;
+            const key = `${currentEvoker}|${step}|${mat.name}`;
+            const currentAmt = parseInt(s[key]) || 0;
+            const isDone = currentAmt >= mat.qty;
+            if (isDone) completedItems++;
+
+            // Use the raw key for the CSS selector
+            const input = document.querySelector(`input[data-key="${key}"]`);
+            if (input) {
+              if (document.activeElement !== input) {
+                input.value = currentAmt;
+              }
+
+              const matDiv = input.closest('.material');
+              if (isDone) matDiv.classList.add('done');
+              else matDiv.classList.remove('done');
+
+              if (isDone && settings.hideCompleted) matDiv.classList.add('hidden');
+              else matDiv.classList.remove('hidden');
+            }
+          });
+
+          const isStepFullyDone = (completedItems === totalItems);
+          const stepDiv = document.querySelector(`.step[data-step="${step}"]`);
+
+          if (stepDiv) {
+            if (isStepFullyDone) stepDiv.classList.add('step-done');
+            else stepDiv.classList.remove('step-done');
+
+            if (isStepFullyDone && settings.hideCompleted) stepDiv.classList.add('hidden');
+            else stepDiv.classList.remove('hidden');
+
+            const h3 = stepDiv.querySelector('h3');
+            if (h3) h3.innerHTML = `${step} ${isStepFullyDone ? '✓' : ''}`;
+
+            const btn = stepDiv.querySelector('.btn-step-action');
+            if (btn) {
+              btn.textContent = isStepFullyDone ? '↺ Reset' : '✓ Max All';
+              if (isStepFullyDone) btn.classList.add('reset');
+              else btn.classList.remove('reset');
+
+              // Escape apostrophes for the inline JS function call
+              const jsStep = step.replace(/'/g, "\\'");
+              btn.setAttribute('onclick', `toggleMaxStep(event, '${jsStep}', ${isStepFullyDone})`);
+            }
+          }
+        });
       } else {
         const totals = {};
-        for (const mats of Object.values(evoker.steps))
-          for (const [mat, qty] of Object.entries(mats))
-            totals[mat] = (totals[mat] || 0) + qty;
+        const currentTotals = {};
+
+        for (const stepName of Object.keys(data.steps)) {
+          const mats = getResolvedMaterials(currentEvoker, stepName);
+          for (const mat of mats) {
+            totals[mat.name] = (totals[mat.name] || 0) + mat.qty;
+            const key = `${currentEvoker}|${stepName}|${mat.name}`;
+            currentTotals[mat.name] = (currentTotals[mat.name] || 0) + (parseInt(s[key]) || 0);
+          }
+        }
+
+        Object.entries(totals).forEach(([matName, totalQty]) => {
+          const currentAmt = currentTotals[matName] || 0;
+          const isDone = currentAmt >= totalQty;
+
+          // Use the raw string for the CSS selector
+          const input = document.querySelector(`input[data-key="cumul-${matName}"]`);
+          if (input) {
+            if (document.activeElement !== input) {
+              input.value = currentAmt;
+            }
+            const matDiv = input.closest('.material');
+            if (isDone) matDiv.classList.add('done');
+            else matDiv.classList.remove('done');
+
+            if (isDone && settings.hideCompleted) matDiv.classList.add('hidden');
+            else matDiv.classList.remove('hidden');
+
+            const label = matDiv.querySelector('.mat-label');
+            if (label) {
+              // Escape apostrophes for the inline JS function call
+              const jsMatName = matName.replace(/'/g, "\\'");
+              label.setAttribute('onclick', `toggleMaxCumulative('${jsMatName}', ${totalQty}, ${currentAmt})`);
+            }
+          }
+        });
+      }
+    }
+
+    function render() {
+      const el = document.getElementById('content');
+      const s = saved();
+      const settings = getSettings();
+
+      updateProgressBar(s);
+
+      if (view === 'steps') {
+        el.innerHTML = Object.keys(data.steps).map(step => {
+          const mats = getResolvedMaterials(currentEvoker, step);
+          let totalItems = 0;
+          let completedItems = 0;
+
+          // Escape apostrophes for inline JS function calls
+          const jsStep = step.replace(/'/g, "\\'");
+
+          const matHTML = mats.map(mat => {
+            totalItems++;
+            const key = `${currentEvoker}|${step}|${mat.name}`;
+            const jsKey = key.replace(/'/g, "\\'");
+
+            const currentAmt = parseInt(s[key]) || 0;
+            const isDone = currentAmt >= mat.qty;
+            if (isDone) completedItems++;
+
+            const doneClass = isDone ? 'done' : '';
+            const isHidden = isDone && settings.hideCompleted;
+            const hiddenClass = isHidden ? 'hidden' : '';
+
+            // Use raw `key` for data-key, use `jsKey` for oninput/onclick
+            return `<div class="material ${doneClass} ${hiddenClass}">
+              <input type="number" class="mat-input" data-key="${key}"
+                     value="${currentAmt}" min="0" max="${mat.qty}"
+                     oninput="updateAmount('${jsKey}', this, ${mat.qty})">
+              <span class="mat-label" onclick="toggleMax('${jsKey}', ${mat.qty})" title="Click to max/reset">
+                / ${mat.qty.toLocaleString()} ${mat.name}
+              </span>
+            </div>`;
+          }).join('');
+
+          const isStepFullyDone = (completedItems === totalItems);
+          const stepHiddenClass = (isStepFullyDone && settings.hideCompleted) ? 'hidden' : '';
+          const isOpen = openSteps.has(step);
+          const contentHiddenClass = isOpen ? '' : 'hidden';
+
+          const btnText = isStepFullyDone ? '↺ Reset' : '✓ Max All';
+          const btnClass = isStepFullyDone ? 'reset' : '';
+
+          // Use raw `step` for data-step, use `jsStep` for onclick
+          return `
+            <div class="step ${stepHiddenClass} ${isStepFullyDone ? 'step-done' : ''}" data-step="${step}">
+                <div class="step-header" onclick="toggleStep('${jsStep}')">
+                    <span class="toggle-icon">${isOpen ? '▼' : '▶'}</span>
+                    <h3>${step} ${isStepFullyDone ? '✓' : ''}</h3>
+                    <button class="btn-step-action ${btnClass}" onclick="toggleMaxStep(event, '${jsStep}', ${isStepFullyDone})">
+                        ${btnText}
+                    </button>
+                </div>
+                <div class="step-content ${contentHiddenClass}">
+                    ${matHTML}
+                </div>
+            </div>`;
+        }).join('');
+      } else {
+        const totals = {};
+        const currentTotals = {};
+
+        for (const stepName of Object.keys(data.steps)) {
+          const mats = getResolvedMaterials(currentEvoker, stepName);
+          for (const mat of mats) {
+            totals[mat.name] = (totals[mat.name] || 0) + mat.qty;
+            const key = `${currentEvoker}|${stepName}|${mat.name}`;
+            currentTotals[mat.name] = (currentTotals[mat.name] || 0) + (parseInt(s[key]) || 0);
+          }
+        }
 
         el.innerHTML = `<div class="cumulative"><h2>Total Materials</h2>` +
-          Object.entries(totals).map(([mat, qty]) => {
-            const key = `${currentEvoker}|total|${mat}`;
-            const done = s[key] ? 'done' : '';
-            // Changed div to label, moved event to onchange
-            return `<label class="material ${done}" style="cursor:pointer;">
-              <input type="checkbox" onchange="toggle('${key}')" ${s[key] ? 'checked' : ''}>
-              <span>${mat} ×${qty.toLocaleString()}</span>
-            </label>`;
+          Object.entries(totals).map(([matName, totalQty]) => {
+            const currentAmt = currentTotals[matName] || 0;
+            const isDone = currentAmt >= totalQty;
+            const doneClass = isDone ? 'done' : '';
+
+            const isHidden = isDone && settings.hideCompleted;
+            const hiddenClass = isHidden ? 'hidden' : '';
+
+            // Escape apostrophes for inline JS function calls
+            const jsMatName = matName.replace(/'/g, "\\'");
+
+            // Use raw `matName` for data-key, use `jsMatName` for oninput/onclick
+            return `<div class="material ${doneClass} ${hiddenClass}">
+              <input type="number" class="mat-input" data-key="cumul-${matName}"
+                     value="${currentAmt}" min="0" max="${totalQty}"
+                     oninput="updateCumulative('${jsMatName}', this)">
+              <span class="mat-label" onclick="toggleMaxCumulative('${jsMatName}', ${totalQty}, ${currentAmt})" title="Click to max/reset all steps">
+                / ${totalQty.toLocaleString()} ${matName}
+              </span>
+            </div>`;
           }).join('') + `</div>`;
       }
     }
+
     init();
 </script>
 </body>
